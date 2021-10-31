@@ -15,14 +15,13 @@ export default createGlobalStyle`
         font-size: 14px;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     }
-`;
-
-export const ContentWrap = styled.section`
-  max-width: 1400px;
-  padding: 0.1px;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #080325;
-  display: block;
-  box-sizing: border-box;
+    section {
+        max-width: 1400px;
+        padding: 0.1px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #080325;
+        display: block;
+        box-sizing: border-box;
+    }
 `;
