@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.footer`
     position: absolute;
     bottom:0;
-    width:90%;
+    width:100%;
     max-width:1400px;
     
   
@@ -40,7 +40,7 @@ export const Container = styled.footer`
     }
     section{
         text-align: center;
-        
+        padding: 0.5rem;
         
         
     }

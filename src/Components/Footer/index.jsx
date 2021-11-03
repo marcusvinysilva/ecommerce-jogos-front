@@ -115,7 +115,6 @@ const Footer = () => {
       </section>
 
       <section>
-        <hr />  
         © 2021. All rights reserved
     </section>
     </Container>
