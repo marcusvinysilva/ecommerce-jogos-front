@@ -1,15 +1,16 @@
-function createButton()
-{
-     var btn = document.createElement('BUTTON');
-     var lbl = document.createTextNode();        
-     btn.appendChild(lbl);   
-     btn.onclick = function()
-     {
-        window.history.go(0);
-     }
-     document.body.appendChild(btn);    
-}
-
-createButton();
-
+class LoggingButton extends React.Component {
+   // Essa sintaxe garante que o `this` seja vinculado ao handleClick.
+   
+   handleClick = () => {
+     console.log('this is:', this);
+   }
+ 
+   render() {
+     return (
+       <button onClick={this.handleClick}>
+         Clique Aqui
+       </button>
+     );
+   }
+ }
 
