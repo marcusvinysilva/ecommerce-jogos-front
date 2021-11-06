@@ -1,6 +1,7 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
     *{
         margin: 0;
         padding: 0;
@@ -24,4 +25,4 @@ export default createGlobalStyle`
         display: block;
         box-sizing: border-box;
     }
-`;
+`

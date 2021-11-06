@@ -1,22 +1,22 @@
-import React, { createContext, useContext, useState } from 'react';
-import api from '../services/api';
+import React, { createContext, useContext, useState } from 'react'
+import api from '../services/api'
 
-const GamesContext = createContext(null);
+const GamesContext = createContext(null)
 
 const GamesProvider = ({ children }) => {
-    const [isFetch, setIsFetch] = useState(false);
-    const [games, setGame] = useState([]);
-    const [selectGame, setSelectGame] = useState(null);
+    const [isFetch, setIsFetch] = useState(false)
+    const [games, setGame] = useState([])
+    const [selectGame, setSelectGame] = useState(null)
 
     const getGames = async () => {
         setIsFetch(true)
         try {
-            const { data } = await api.get('/pokemon');
-            setIsFetch(data);
+            const { data } = await api.get('/games')
+            setGame(data)
         } catch {
             console.log('Something went wrong!')
         } finally {
-            setIsFetch(false);
+            setIsFetch(false)
         }
     }
 
@@ -37,7 +37,7 @@ const GamesProvider = ({ children }) => {
 }
 
 const useGames = () => {
-    return useContext(GamesContext);
+    return useContext(GamesContext)
 }
 
-export { GamesProvider, useGames}
+export { GamesProvider, useGames }
