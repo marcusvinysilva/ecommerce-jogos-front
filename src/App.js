@@ -7,9 +7,8 @@ function App() {
       <>
           <GlobalStyle />
           <GamesProvider>
-              <section>
-                  <Home />
-              </section>
+            <Home />
+              
           </GamesProvider>
       </>
   )

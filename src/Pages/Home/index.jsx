@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card } from '../../Components/GameCard'
+import GameList from '../../Components/GameList'
 export default function Home() {
     return (
-        <div>
-            <Card />
-        </div>
+        <section>
+            <GameList />
+        </section>
     )
 }
