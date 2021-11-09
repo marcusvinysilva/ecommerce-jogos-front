@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from './styles'
 import {Link} from "react-dom";
-const GlobalButton = () => {
+const GlobalButton = ({children}) => {
    return (
       <div>
         <div>
-         <Button onClick={() => { alert('clicado') }}> Learn More </Button>
+         <Button onClick={() => { alert('clicado') }}> {children} </Button>
          </div>
       </div>
    )

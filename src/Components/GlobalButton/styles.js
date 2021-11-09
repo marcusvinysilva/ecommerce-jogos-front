@@ -20,6 +20,7 @@ const Button = styled.button`
         
     background:#d92b4c;
     border:1px solid #d92b4c;
+    cursor: pointer;
     
     
     }
