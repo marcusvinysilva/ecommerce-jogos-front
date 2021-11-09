@@ -1,25 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Content, ContentWrapper, Wrapper, LeftArrow, RightArrow } from './style'
+import React, { useEffect, useState } from 'react';
+import { Container, Content, ContentWrapper, Wrapper, LeftArrow, RightArrow } from './style';
 
-export const Carousel = ({ children }) => {
+export const Carousel = ({ children, show, infiniteLoop }) => {
 
-  console.log(children.length)
-  const [touchPosition, setTouchPosition] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0);
   const [length, setLength] = useState(children.length);
 
+  const [isRepeating, setIsRepeating] = useState(infiniteLoop && children.length > show);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+
+  const [touchPosition, setTouchPosition] = useState(null);
+
   useEffect(() => {
-    setLength(children);
-  }, [children]);
+    setLength(children.length);
+    setIsRepeating(infiniteLoop && children.length > show);
+  }, [children, infiniteLoop, show]);
+
+  useEffect(() => {
+    if (isRepeating) {
+      if (currentIndex === show || currentIndex === length) {
+        setTransitionEnabled(true);
+      }
+    }
+  }, [currentIndex, isRepeating, show, length]);
 
   const next = () => {
-    if (currentIndex < (length - 1)) {
+    if (currentIndex || currentIndex < (length - show)) {
       setCurrentIndex(nextState => nextState + 1)
     }
-  }
+  };
 
   const prev = () => {
-    if (currentIndex > 0) {
+    if (isRepeating || currentIndex > 0) {
       setCurrentIndex(prevState => prevState - 1);
     }
   }
@@ -49,16 +61,71 @@ export const Carousel = ({ children }) => {
 
     setTouchPosition(null);
   }
+
+  const handleTransitionEnd = () => {
+    if (isRepeating) {
+      if (currentIndex === 0) {
+        setTransitionEnabled(false);
+        setCurrentIndex(length);
+      } else if (currentIndex === length + show) {
+        setTransitionEnabled(false);
+        setCurrentIndex(show);
+      }
+    }
+  };
+
+  const renderExtraPrev = () => {
+    let output = [];
+    for (let i = 0; i < show; i++) {
+      output.push(children[length - 1 - i]);
+    }
+    output.reverse();
+    return output;
+  }
+
+  const renderExtraNext = () => {
+    let output = [];
+    for (let i = 0; i < show; i++) {
+      output.push(children[i])
+    }
+    return output;
+  };
+  
   return (
-    <Container className='container'>
-      <Wrapper className='wrapper'>
-        <LeftArrow onClick={prev}> &lt; </LeftArrow>
-        <ContentWrapper className='content-wrapper' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
-          <Content className='area-cards' currentIndex={currentIndex}>
+    <Container >
+      <Wrapper >
+        {
+          (isRepeating || currentIndex > 0) &&
+          <LeftArrow onClick={prev}> &lt; </LeftArrow>
+        }
+        <ContentWrapper
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+        >
+          <Content
+
+            style={{
+              transform: `translateX(-${currentIndex * (100 / show)}vw)`,
+              transition: !transitionEnabled ? 'none' : undefined,
+            }}
+            onTransitionEnd={() => handleTransitionEnd()}
+            show={100 / `${show}vw`}
+          >
+            {
+              length > show && isRepeating &&
+              renderExtraPrev()
+            }
             {children}
+            {
+              (length > show && isRepeating) &&
+              renderExtraNext()
+            }
           </Content>
         </ContentWrapper>
-        <RightArrow onClick={next} > &gt; </RightArrow>
+        {
+          (isRepeating || currentIndex < (length - 1)) &&
+          <RightArrow onClick={next} > &gt; </RightArrow>
+        }
       </Wrapper>
     </Container>
   )

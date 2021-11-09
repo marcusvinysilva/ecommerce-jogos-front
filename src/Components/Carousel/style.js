@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   width: 100%;
 `;
 
@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  /* display: flex; */
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -40,36 +39,23 @@ export const RightArrow = styled(Arrow)`
   right: 24px;
 `;
 
-export const Content = styled.div.attrs(props => ({
-  currentIndex: props.currentIndex,
-}))`
+export const Content = styled.div`
   display: flex;
-  width: 33%;
   transition: all 250ms linear;
   --ms-overflow-style: none;
   scrollbar-width: none;
 
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar, ::-webkit-scrollbar{
     display: none;
   }
 
   *{
-    width: 100%;
+    width: 33vw;
     flex-shrink: 0;
     flex-grow: 1;
   }
-  /* a {
-    color: #fff;
-    letter-spacing: 0.06rem;
-    word-wrap: break-word;
-    text-decoration: none;
-    outline: 0;
-    display: block;
-    transition: 0.3s color ease;
-    cursor: pointer;
-  } */
+  
   div {
-    width: 100%;
     opacity: 0.5;
     transition: 0.5s ;
     :hover {
@@ -79,13 +65,11 @@ export const Content = styled.div.attrs(props => ({
   }
   img {
     object-fit: cover;
-    max-width: 100%;
     border: 0;
     display: block;
     overflow: hidden;
     transform-origin: 50% 50%;
-    transform: skew(-7deg) translateX(${props => props.currentIndex * 100}%);
-    
+    transform: skew(-7deg);
   }
 `;
 

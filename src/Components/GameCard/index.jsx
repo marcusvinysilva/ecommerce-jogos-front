@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
 import { useGames } from '../../context/gameContext';
-// import { Content } from './style';
+import { Carousel } from '../Carousel'
 
-export const Card = () => {
-    const { getGames, gameList } = useGames();
-    const listGames = [];
+export const Cards = () => {
+  const { getGames, gameList } = useGames();
 
-    // for (let i = 0; i < (games.length - 85); i++) {
-    //     const thumbnail = games[i].thumbnail;
-    //     listGames.push(<img src={thumbnail} alt={thumbnail} />)
-    // }
-
-    useEffect(() => {
-        getGames();
-    }, [])
-    return (
-        gameList.map((game, index) => (
-            <div key={index} className='cada-card'>
-                {game}
-            </div>
-        ))
-    )
+  useEffect(() => {
+    getGames();
+  }, [])
+  return (
+    <Carousel
+      show={4}
+      infiniteLoop
+    >
+      
+      {gameList.map((game, index) => (
+        <div key={index}>
+          {game}
+        </div>
+      ))}
+    </Carousel>
+  )
 }
