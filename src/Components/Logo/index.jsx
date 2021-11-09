@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Loo from "../Logo/"
 
 const StyledLogo = styled.a`
   img {
@@ -11,13 +10,21 @@ const StyledLogo = styled.a`
 
 const Divimg = styled.div`
 background: #f000;
-`
+`;
+
+const Styledimg = styled.img`
+
+`;
+
 
 export function Logo() {
   return (
+
+    <Divimg>
     <StyledLogo href="/">
-      <img src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
+      <Styledimg src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
       {/* <img src="https://media.discordapp.net/attachments/902360088709312527/905971436571746409/Ultimate-logo.jpg?width=510&height=513" /> */}
     </StyledLogo>
+    </Divimg>
   );
 }
