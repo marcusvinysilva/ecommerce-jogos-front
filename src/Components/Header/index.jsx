@@ -66,7 +66,7 @@ function Header() {
     <Nav>
       <a src="/">
 
-        <Img src="https://media.discordapp.net/attachments/902360088709312527/905971436571746409/Ultimate-logo.jpg?width=510&height=513" alt="Logo" />
+        <Img src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
         {/* <Img src={require("../Logo/Ultimate-logo.svg")} /> */}
       </a>
       <Div>
