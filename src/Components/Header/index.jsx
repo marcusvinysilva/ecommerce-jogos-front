@@ -1,22 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState} from "react";
 import { Logo } from "../Logo/index";
 import { LoginUser } from "../LoginUser/index";
 import styled from "styled-components";
 import ReactModal from "react-modal";
-import { faUser, faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {NavLink} from "react-router-dom";
 import { Image } from "./Modalimg";
-
 
 
 const Navbtn = styled.nav`
 `
 
-const StyledHeader = styled.div`
-  text-align: center;
-  background-color: #ffffff;
-`;
+
+
 const Nav = styled.nav`
   background-image: url("https://th.bing.com/th/id/R.2d925b29bece786a05a68c5afc3c3e97?rik=lRrPx4eYIGHt%2fA&pid=ImgRaw&r=0");
   /* height: 90px; */
@@ -30,12 +26,18 @@ const Nav = styled.nav`
 const Div = styled.div`
   opacity: 0.8;
   /* right: 40px; */
-  padding-right: 100px;
+  padding-right: 20px;
   /* width: 20px; */
   display: flex;
   align-items: center;
   margin-right: --24px;
 `;
+
+const Img = styled.img`
+width: 100px;
+height: 50px;
+`;
+
 
 const Button = styled.button`
   /* border-radius: 4rem;
@@ -50,9 +52,12 @@ width: 20px;
 height: 100px;
 margin-right: 30px; */
   /* opacity: 0.8; */
-  padding: 10px;
+  padding: 20px;
   /* border: none; */
-  border-style: solid;
+  /* border-style: solid; */
+  /* outline: none; */
+  border:none!important;
+  background: none;
 `;
 
 function Header() {
@@ -60,7 +65,9 @@ function Header() {
   return (
     <Nav>
       <a src="/">
-        <img src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" alt="Logo" />
+
+        {/* <Img src="https://media.discordapp.net/attachments/902360088709312527/905971436571746409/Ultimate-logo.jpg?width=510&height=513" alt="Logo" />*/}
+        <Img src={require("../Logo/Ultimate-logo.svg")} />
       </a>
       <Div>
 
@@ -70,7 +77,7 @@ function Header() {
         </Button>
 
             <Button>
-          <FontAwesomeIcon icon={faCartPlus} />
+          <FontAwesomeIcon icon={faShoppingCart} />
           </Button>
         </Navbtn>
       </Div>

@@ -23,6 +23,7 @@ export function Logo() {
     <Divimg>
     <StyledLogo href="/">
       <Styledimg src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
+      {/* <Styledimg src={} /> */}
       {/* <img src="https://media.discordapp.net/attachments/902360088709312527/905971436571746409/Ultimate-logo.jpg?width=510&height=513" /> */}
     </StyledLogo>
     </Divimg>
