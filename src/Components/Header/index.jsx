@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { Logo } from "../Logo/index";
 import {LoginUser} from "../LoginUser/index"
 import styled from "styled-components";
-import Modal from "react-modal";
+import ReactModal from "react-modal";
+import {faUser,faCartPlus} from "@fortawesome/free-solid-svg-icons"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+
 
 const StyledHeader = styled.div`
   text-align: center;
@@ -13,7 +16,8 @@ const Nav = styled.nav`
   justify-content: center;
   background-color: #000f;
   opacity: 1; */
-  background: #000;
+  /* background: #000; */
+  background-image: url("https://th.bing.com/th/id/R.2d925b29bece786a05a68c5afc3c3e97?rik=lRrPx4eYIGHt%2fA&pid=ImgRaw&r=0");
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -42,7 +46,6 @@ height: 100%;
 `
 
 const StyledLiModal = styled.li`
-  
   list-style: none;
   padding-top: 15%;
   padding-left: 35%;
@@ -55,32 +58,33 @@ right: 10px;
 `;
 
 const Div = styled.div`
-background: #f000;
+
 opacity: 0.8;
+/* right: 40px; */
+padding-right: 100px;
+/* width: 20px; */
+display:flex;
+align-items: center;
+margin-right: --24px;
 `
 
 const Button = styled.button`
-border-radius: 4rem;
+/* border-radius: 4rem;
 background: #261ce1;
-padding: 10px 22px;
+padding: 11px 11px;
 color: #fff;
 border:none;
 outline: none;
 text-decoration:none;
 padding-top: 45px;
 width: 20px;
+height: 100px;
+margin-right: 30px; */
+/* opacity: 0.8; */
 `;
 
 function Header() {
   const [ShowModal, SetShowModal] = useState(false);
-
-
-  // function Navbar()
-  // }  
-
-
-
-
   return (
     // <StyledHeader>
     //   <StyledNav>
@@ -120,10 +124,16 @@ function Header() {
     </a>
      <Div>
     <Button href="#" onClick={() => SetShowModal(true)}>
-              Login
+    <FontAwesomeIcon icon={faUser} />
             </Button>
+           
+
+
+<FontAwesomeIcon icon={faCartPlus}/>
+
             </Div>
-            <Modal
+            
+            <ReactModal
               isOpen={ShowModal}
               onRequestClose={() => SetShowModal(false)}
               ariaHideApp={false}
@@ -135,10 +145,10 @@ function Header() {
                 },
               }}
             >
-              <StyledLiModal>
+              
                 <LoginUser />
-              </StyledLiModal>
-            </Modal>
+
+            </ReactModal>
             </Nav>
 
   )

@@ -9,10 +9,10 @@ export default function Home() {
         <>
         <Div>
         <Header/>
-        <div>
+        <h1>
             
             Esta é a Home page
-        </div>
+        </h1>
         </Div>
         
 

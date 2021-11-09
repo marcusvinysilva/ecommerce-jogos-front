@@ -6,15 +6,16 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         outline: 0;
-        background-image: url("https://th.bing.com/th/id/R.2d925b29bece786a05a68c5afc3c3e97?rik=lRrPx4eYIGHt%2fA&pid=ImgRaw&r=0");
     }
     body {
-        background-color: #080325;
+        background-repeat: no-repeat;
+        background-image: url("https://th.bing.com/th/id/R.2d925b29bece786a05a68c5afc3c3e97?rik=lRrPx4eYIGHt%2fA&pid=ImgRaw&r=0");
+        /* background-color: #080325; */
         color: #FFFFff;
         overflow: hidden;
         -webkit-font-smoothing: antialiased;
         font-size: 14px;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; */
     }
     section {
         max-width: 1400px;
