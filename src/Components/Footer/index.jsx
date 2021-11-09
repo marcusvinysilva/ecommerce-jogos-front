@@ -3,7 +3,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import {Container} from "./styles"
 
-const Footer = () => {
+export const Footer = () => {
 
   return (
     
@@ -121,5 +121,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer;

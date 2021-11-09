@@ -1,13 +1,15 @@
 import React from 'react';
 import { Cards } from '../GameCard';
 import { ListHeader } from './style';
+import {GlobalButton} from '../GlobalButton';
+import {GlobalTitle} from '../GlobalTitle';
 
 export default function GameList() {
   return (
     <>
       <ListHeader>
-        <h1>Games</h1>
-        <button>more</button>
+        <GlobalTitle>Game List</GlobalTitle>
+        <GlobalButton>more</GlobalButton>
       </ListHeader>
       
       <Cards />

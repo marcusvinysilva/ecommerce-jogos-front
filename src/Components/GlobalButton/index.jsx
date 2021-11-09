@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './styles'
 import {Link} from "react-dom";
-const GlobalButton = ({children}) => {
+ export const GlobalButton = ({children}) => {
    return (
       <div>
         <div>
@@ -11,5 +11,5 @@ const GlobalButton = ({children}) => {
    )
 }
 
-export default GlobalButton;
+
 

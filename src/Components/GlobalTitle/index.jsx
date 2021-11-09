@@ -1,6 +1,6 @@
 import Title from "./styles";
 
-const GlobalTitle = ({children}) => {
+export const GlobalTitle = ({children}) => {
 
     return (
         <div>
@@ -14,4 +14,3 @@ const GlobalTitle = ({children}) => {
 
 
 }
-export default GlobalTitle;
