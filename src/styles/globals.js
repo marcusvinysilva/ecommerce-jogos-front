@@ -21,7 +21,7 @@ export default createGlobalStyle`
         padding: 0.1px;
         margin: 0 auto;
         overflow: hidden;
-        background: #080325;
+        /* background: #080325; */
         display: block;
         box-sizing: border-box;
     }

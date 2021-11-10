@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Form = styled.form`
 align-content: center;
 text-align: center;
-
+border-color: black;
 `;
 
 const UserDiv = styled.div`
