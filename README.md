@@ -2,7 +2,7 @@
 
 **Nome e logotipo**
 
-![LOGO] (../../Documentos/GitHub/ecommerce-jogos-back/images/logo.png)
+![LOGO] (/images/logo.png)
 
 A imagem representa o reflexo de uma pessoa como um urso bravo e imergido em um jogo (olhos, fone e controle da cor roxa). Por isso o controle virado. Algo como representando a vontade humana de entrar em uma realidade virtual de entretenimento sugerida pelo site.
 
