@@ -1,31 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledLogo = styled.a`
+
+const Divimg = styled.div`
+  background: #f000;
+  padding: 10px 30px;
+
+  @media (max-width: 768px) {
+    height: 40px;
+    width: 60px;
+  }
+
+  .a {
+    cursor: pointer;
+    min-height: 10px;
+  }
+
   img {
-    width: 90px;
-    //left: 90px;
+    padding: 10px 100px;
+
+    @media (max-width: 768px) {
+      padding: 10px 0px;
+      height: 40px;
+    }
   }
 `;
 
-const Divimg = styled.div`
-background: #f000;
-`;
-
-const Styledimg = styled.img`
-
-`;
-
-
 export function Logo() {
   return (
-
     <Divimg>
-    <StyledLogo href="/">
-      <Styledimg src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
-      {/* <Styledimg src={} /> */}
-      {/* <img src="https://media.discordapp.net/attachments/902360088709312527/905971436571746409/Ultimate-logo.jpg?width=510&height=513" /> */}
-    </StyledLogo>
+      <a href="/">
+        <img src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
+      </a>
     </Divimg>
   );
 }

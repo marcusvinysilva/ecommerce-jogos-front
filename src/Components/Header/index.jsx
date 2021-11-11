@@ -7,64 +7,59 @@ import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Image } from "./Modalimg";
 
-const Navbtn = styled.nav``;
+const DivModal = styled.div`
+
+
+
+
+hr{
+  transform: rotate(90deg)
+}
+`;
+
+const NavIcon = styled.nav`
+  justify-content: space-between;
+`;
 
 const NavHeader = styled.nav`
-  /* background-image: url("https://th.bing.com/th/id/R.2d925b29bece786a05a68c5afc3c3e97?rik=lRrPx4eYIGHt%2fA&pid=ImgRaw&r=0"); */
-  /* height: 90px; */
   min-height: 50px;
   width: 100%;
-  /* height: 100%; */
   display: flex;
   justify-content: space-between;
-  /* padding: 0.5rem calc((100v - 1000wv)); */
   opacity: 0.6;
   background: #080325;
-  /* position: fixed; */
   z-index: 10;
+  /* transition: .9 s; */  
+  @media (max-width: 768px) {
+    opacity: 1;
+  }
 `;
 
 const Div = styled.div`
   opacity: 0.8;
-  /* right: 40px; */
   padding-right: 20px;
-  /* width: 20px; */
   display: flex;
   align-items: center;
   margin-right: --24px;
 `;
 
-const Img = styled.img`
-  /* width: 100px;
-height: 50px; */
-  padding-left: 20px;
-`;
-
-const Button = styled.button`
-  /* border-radius: 4rem;
-background: #261ce1;
-padding: 11px 11px;
-color: #fff;
-border:none;
-outline: none;
-text-decoration:none;
-padding-top: 45px;
-width: 20px;
-height: 100px;
-margin-right: 30px; */
-  /* opacity: 0.8; */
-  padding: 20px;
-  /* border: none; */
-  /* border-style: solid; */
-  /* outline: none; */
+const NavButton = styled.button`
+  height: 0px;
+  padding: 24px 32px;
   border: none !important;
   background: none;
-
+  cursor: pointer;
+  /* margin: 0px 14px; */
+  
+  @media (max-widht:768px){
+    padding: 12px 16px
+  }
+  
   .usericon {
     color: white;
   }
 
-  .carticon{
+  .carticon {
     color: white;
   }
 `;
@@ -73,20 +68,17 @@ function Header() {
   const [ShowModal, SetShowModal] = useState(false);
   return (
     <NavHeader>
-      <a src="/">
-        <Img src="https://wp.nkdev.info/youplay/wp-content/themes/youplay/assets/images/logo-light.png" />
-        {/* <Img src={require("../Logo/Ultimate-logo.svg")} /> */}
-      </a>
+      <Logo />
       <Div>
-        <Navbtn>
-          <Button href="#" onClick={() => SetShowModal(true)}>
+        <NavIcon>
+          <NavButton onClick={() => SetShowModal(true)}>
             <FontAwesomeIcon className="usericon" icon={faUser} />
-          </Button>
+          </NavButton>
 
-          <Button>
+          <NavButton>
             <FontAwesomeIcon className="carticon" icon={faShoppingCart} />
-          </Button>
-        </Navbtn>
+          </NavButton>
+        </NavIcon>
       </Div>
 
       <ReactModal
@@ -95,20 +87,17 @@ function Header() {
         ariaHideApp={false}
         style={{
           overlay: {
-            justifyContent: "center",
-            // width: "450px",
-            // height: "400px",
-            // opacity: 0.7,
           },
-          content:{
-            
-          }
+          content: {
+            backgroundColor: ' #080325',
+          },
         }}
       >
-        <div>
+        <DivModal>
           <LoginUser />
+          <hr/>
           <Image />
-        </div>
+        </DivModal>
       </ReactModal>
     </NavHeader>
   );
