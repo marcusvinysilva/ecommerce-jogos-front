@@ -4,6 +4,11 @@ import styled from "styled-components";
 
 const Divimg = styled.div`
 
+
+img{
+ height: 300px;
+ width: 300px;
+}
 `;
 
 export function Image(){
