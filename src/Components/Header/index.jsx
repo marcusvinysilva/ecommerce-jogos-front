@@ -13,7 +13,11 @@ const DivModal = styled.div`
 
 
 hr{
-  transform: rotate(90deg)
+  border-color: #f00;
+   /* Deixar ele na horizontal quando a largura do aparelho foi maior que 768 */
+  @media (min-widht:768px){
+    transform: rotate(90deg);  
+ }
 }
 `;
 
@@ -45,14 +49,18 @@ const Div = styled.div`
 
 const NavButton = styled.button`
   height: 0px;
-  padding: 24px 32px;
+  /* padding: 24px 32px; */
+  /* padding-top: 50%; */
+  /* padding-left: 30%; */
+  padding-right: 40px;
   border: none !important;
   background: none;
   cursor: pointer;
   /* margin: 0px 14px; */
   
   @media (max-widht:768px){
-    padding: 12px 16px
+    /* padding: 12px 16px */
+    padding-right: 10px;
   }
   
   .usericon {

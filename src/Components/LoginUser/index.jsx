@@ -17,8 +17,9 @@ const UserDivControl = styled.div`
     color: antiquewhite;
     background-color: black;
     border-radius: 3rem;
-    position: absolute;
+    /* position: absolute; */
     /* padding-bottom: 10px; */
+    padding: 10px 30px;
   }
 
   input {
