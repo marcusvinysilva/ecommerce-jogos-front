@@ -9,9 +9,6 @@ import { Image } from "./Modalimg";
 
 const DivModal = styled.div`
 
-
-
-
 hr{
   border-color: #f00;
    /* Deixar ele na horizontal quando a largura do aparelho foi maior que 768 */
@@ -98,6 +95,7 @@ function Header() {
           },
           content: {
             backgroundColor: ' #080325',
+            borderRadius:'8px',
           },
         }}
       >
