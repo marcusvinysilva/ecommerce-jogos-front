@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
     *{
         margin: 0;
         padding: 0;
@@ -13,7 +12,7 @@ export default createGlobalStyle`
         color: #ffffff;
         -webkit-font-smoothing: antialiased;
         font-size: 14px;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        font-family: 'Lato', sans-serif;
     }
     section {
         max-width: 1400px;
