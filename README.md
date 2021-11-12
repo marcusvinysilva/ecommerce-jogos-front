@@ -4,9 +4,7 @@
 
 ![LOGO] (/images/logo.png)
 
-A imagem representa o reflexo de uma pessoa como um urso bravo e imergido em um jogo (olhos, fone e controle da cor roxa). Por isso o controle virado. Algo como representando a vontade humana de entrar em uma realidade virtual de entretenimento sugerida pelo site.
-
-E, ULTIMATE foi o nome escolhido pela Equipe n. 8, para o projeto final de Boot Camp, no módulo 5, turma C005 da Blue Edtech. O nome tem relação a sermos a ultima equipe do Boot Camp, além da referência "time eite", ou seja time 8.
+ULTIMATE foi o nome escolhido pela Equipe n. 8, para o projeto final de Boot Camp, no módulo 5, turma C005 da Blue Edtech. O nome tem relação a sermos a ultima equipe do Boot Camp, além da referência "time eite", ou seja time 8.
 
 **Descrição**
 
@@ -32,20 +30,7 @@ A Equipe n. 8 está desenvolvendo um site e-commerce de jogos virtuais para comp
 
 Para o desenvolvimento do proposto, estão sendo utilizadas as ferramentas de comunicação e organização: Jira, Miro, Discord, Branchs no GitHub, Google Meet e Jitse. A programação está sendo realizada no VS Code, cujos códigos estão guardados na nuvem do GitHub do membro Scrum Master, apresentado a seguir.
 
-Dos itens obrigatórios para SPA, relacionados à especialidade Front End atualmente desempenhada por estudantes de Full Stack, foram: responsividade; definir o layout utilizando Figma e usar SO (Nest).
-
-Definido o Backlog, as prioridades de desenvolvimento também, como sendo:
-
-1. Autenticação/cadastro (administrador/outros - API Receita para validar CPF)
-2. Categorias;
-3. Barra de pesquisa;
-4. Favoritos;
-5. Comprar;
-6. Adicionar sem abrir o carrinho;
-7. Botão comprar mais, volta ao início e
-8. Se possível, sugestão de produtos parecidos;
-9. Finalizar compra (cupom, CEP (Correios), endereço, tipo de pagamento);
-10. Conectar um API de pagamento.
+Dos itens obrigatórios para SPA, relacionados à especialidade Front End atualmente desempenhada por estudantes de Full Stack, foram: responsividade; definir o layout utilizando Figma e usar Framework (React).
 
 **Apoio**
 Caso necessite de alguma ajuda a respeito do projeto, pode contatar qualquer um dos membros da equipe, identificados no item a seguir.
