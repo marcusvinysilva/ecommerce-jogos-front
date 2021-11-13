@@ -8,7 +8,7 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  @media (min-width: 1200px) {
+  /* @media (min-width: 1200px) {
     width: 1170px;
   }
 
@@ -18,13 +18,14 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     width: 750px;
-  }
+  } */
 `;
 
 export const Row = styled.div`
   margin-left: -15px;
   margin-right: -15px;
 `;
+
 export const Main = styled.main`
   position: relative;
   min-height: 1px;
@@ -35,10 +36,21 @@ export const Main = styled.main`
     width: 100%;
     float: left;
   }
+`;
+
+export const BreadcrumbsAndForm = styled.div`
+  display: flex;
+  justify-content: space-between;
 
   nav {
+    color: #fff;
     margin-bottom: 20px;
   }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
   p {
     margin: 0 0 1em 0;
     float: left;
@@ -47,7 +59,7 @@ export const Main = styled.main`
 
 export const Form = styled.form`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 0 1em 0;
   float: right;
   margin-bottom: 30px;

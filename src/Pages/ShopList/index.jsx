@@ -1,21 +1,29 @@
-import { Container, Content, Form, Main, Row } from './style';
+import {
+  Container,
+  BreadcrumbsAndForm,
+  Content,
+  Form,
+  Main,
+  Row,
+} from './style';
 import { GamesShopList } from '../../Components/ShopList';
+import { Hero } from '../../Components/Hero';
+import { Breadcrumbs } from '@mui/material';
 export default function ShopList() {
   return (
     <section>
+      <Hero />
       <Container className="container">
         <Row className="row">
           <Main className="main">
-            <div>
-              <nav>
-                <a href="/#">links</a>
-              </nav>
+            <BreadcrumbsAndForm>
+              <Breadcrumbs>
+                <a href="/#">Breadcrumbs</a>
+              </Breadcrumbs>
               <Form>
-                <div>
-                  <input type="select" />
-                </div>
+                <div>Input Form</div>
               </Form>
-            </div>
+            </BreadcrumbsAndForm>
             <Content>
               <GamesShopList />
             </Content>

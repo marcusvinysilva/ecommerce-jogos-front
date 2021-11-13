@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 import { useGames } from '../../context/gameContext';
-import { Container, Content, GameInfo, GameImage, LinkGame } from './style';
+import {
+  Container,
+  Content as ImageContent,
+  GameInfo,
+  GameImage,
+  LinkGame,
+} from './style';
 
 export const ShopItem = () => {
   const { games, getGames } = useGames();
@@ -10,20 +16,22 @@ export const ShopItem = () => {
   return (
     <>
       {games.map((game, index) => (
-        <Container>
+        <Container key={index}>
           <LinkGame to={`game-details/${game.id}`} key={index}>
-            <Content>
+            <ImageContent>
               <GameImage src={game.thumbnail} alt={game.title} />
-              <GameInfo>
-                <h2>{game.title}</h2>
-                <div>
-                  <p>{game.genre}</p>
-                  <p>{game.platform}</p>
-                </div>
-              </GameInfo>
-            </Content>
+            </ImageContent>
+            <GameInfo>
+              <h2>{game.title}</h2>
+              <div>
+                <p>{game.genre}</p>
+                <p>{game.platform}</p>
+              </div>
+            </GameInfo>
           </LinkGame>
-          <button> add to cart</button>
+          <div>
+            <button> add to cart</button>
+          </div>
         </Container>
       ))}
     </>

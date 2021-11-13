@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  width: 33.33%;
+  width: auto;
   float: none;
   min-height: 1px;
   padding-left: 15px;
@@ -12,6 +12,9 @@ export const Container = styled.div`
 `;
 
 export const LinkGame = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #fff;
   text-decoration: none;
   outline: none;
@@ -30,12 +33,21 @@ export const Content = styled.div`
 export const GameImage = styled.img`
   height: auto;
   width: 100%;
+  max-width: 500px;
+  margin: 0;
+  opacity: 0.5;
   transition: 0.3s opacity ease;
   transform: skew(-7deg) scale(1.09);
   --webkit-backface-visibility: hidden;
 `;
 
 export const GameInfo = styled.div`
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: space-around;
   margin-bottom: 15px;
   text-align: center;
   transform: translateX(-5%);
@@ -47,9 +59,11 @@ export const GameInfo = styled.div`
     font-size: 18px;
     line-height: 20px;
     color: #fff;
+    border-bottom: 1px solid #fff;
     font-weight: 400;
   }
   div {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
