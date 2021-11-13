@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Form = styled.form`
   margin-right: 20px;
-  padding-left:200px;
+  padding-left:calc(45%);
   /* align-content: center; */
   /* text-align: center; */
   /* align-items: flex-end; */
@@ -12,6 +12,9 @@ const Form = styled.form`
 `;
 
 const UserDiv = styled.div`
+  /* margin-top: 80px; */
+  /* width: calc(100% - 80px) */
+  /* margin-bottom: 80px; */
   /* justify-content: end; */
 `;
 
@@ -56,7 +59,7 @@ export function LoginUser() {
   }
 
   return (
-    <UserDiv>
+    // <UserDiv>
       <Form onSubmit={onSubmit}>
         <UserDivControl>
           <label htmlFor="user">Username:</label>
@@ -80,6 +83,6 @@ export function LoginUser() {
         </UserDivControl>
         <button>Log in</button>
       </Form>
-    </UserDiv>
+    // </UserDiv>
   );
 }
