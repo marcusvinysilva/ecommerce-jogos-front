@@ -12,7 +12,7 @@ export const ShopItem = () => {
   const { games, getGames } = useGames();
   useEffect(() => {
     getGames();
-  });
+  }, []);
   return (
     <>
       {games.map((game, index) => (

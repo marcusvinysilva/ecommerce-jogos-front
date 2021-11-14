@@ -7,7 +7,8 @@ export const Cards = () => {
 
   useEffect(() => {
     getGames();
-  });
+  }, []);
+
   return (
     <Carousel show={4} infiniteLoop>
       {gameList.map((game, index) => (

@@ -1,51 +1,63 @@
-import React, { createContext, useContext, useState } from 'react'
-import api from '../services/api'
+import React, { createContext, useContext, useState } from 'react';
+import api from '../services/api';
 
-const GamesContext = createContext(null)
+const GamesContext = createContext(null);
 
 const GamesProvider = ({ children }) => {
-  const [isFetch, setIsFetch] = useState(false)
-  const [games, setGame] = useState([])
-  const [selectGame, setSelectGame] = useState(null)
-  const gameList = []
+  const [isFetch, setIsFetch] = useState(false);
+  const [games, setGames] = useState([]);
+  const [selectedGame, setSelectGame] = useState(null);
+  const gameList = [];
 
   const getGames = async () => {
-    setIsFetch(true)
+    setIsFetch(true);
     try {
-      const { data } = await api.get('/games')
-      setGame(data)
+      const { data } = await api.get('/games', {
+        params: { category: 'shooter' },
+      });
+      setGames(data);
     } catch {
-      console.error('Something went wrong!')
+      console.error('Something went wrong!');
     } finally {
-      setIsFetch(false)
+      setIsFetch(false);
     }
-  }
+  };
+
+  const getSelectedGame = async (id) => {
+    try {
+      const { data } = await api.get('/game', { params: { id: id } });
+      setSelectGame(data);
+    } catch {
+      console.error('Something went wrong!');
+    }
+  };
 
   for (let i = 0; i < games.length - 85; i++) {
-    const thumbnail = games[i].thumbnail
-    const title = games[i].title
-    gameList.push(<img src={thumbnail} alt={title} />)
+    const thumbnail = games[i].thumbnail;
+    const title = games[i].title;
+    gameList.push(<img src={thumbnail} alt={title} />);
   }
 
   return (
     <GamesContext.Provider
       value={{
         isFetch,
-        selectGame,
-        setGame,
+        setGames,
         games,
         gameList,
         setSelectGame,
         getGames,
+        getSelectedGame,
+        selectedGame,
       }}
     >
       {children}
     </GamesContext.Provider>
-  )
-}
+  );
+};
 
 const useGames = () => {
-  return useContext(GamesContext)
-}
+  return useContext(GamesContext);
+};
 
-export { GamesProvider, useGames }
+export { GamesProvider, useGames };
