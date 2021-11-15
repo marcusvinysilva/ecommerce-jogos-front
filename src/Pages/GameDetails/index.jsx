@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import ImageGallery from 'react-image-gallery';
 import { useParams } from 'react-router-dom';
 import { Carousel } from '../../Components/Carousel';
 import { Hero } from '../../Components/Hero';
