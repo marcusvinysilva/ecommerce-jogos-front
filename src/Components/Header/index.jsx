@@ -1,94 +1,54 @@
 import React, { useState } from "react";
 import { Logo } from "../Logo/index";
 import { LoginUser } from "../LoginUser/index";
-import styled from "styled-components";
 import ReactModal from "react-modal";
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image } from "./Modalimg";
+import Cart from "../Cart/index";
+import {NavHeader,Div,NavIcons,NavButton,DivModal} from './style'
 
-const DivModal = styled.div`
 
-hr{
-  border-color: #f00;
-   /* Deixar ele na horizontal quando a largura do aparelho foi maior que 768 */
-  @media (min-widht:768px){
-    transform: rotate(90deg);  
- }
-}
-`;
-
-const NavIcon = styled.nav`
-  justify-content: space-between;
-`;
-
-const NavHeader = styled.nav`
-  min-height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  opacity: 0.6;
-  background: #080325;
-  z-index: 10;
-  /* transition: .9 s; */  
-  @media (max-width: 768px) {
-    opacity: 1;
-  }
-`;
-
-const Div = styled.div`
-  opacity: 0.8;
-  padding-right: 20px;
-  display: flex;
-  align-items: center;
-  margin-right: --24px;
-`;
-
-const NavButton = styled.button`
-  height: 0px;
-  /* padding: 24px 32px; */
-  /* padding-top: 50%; */
-  /* padding-left: 30%; */
-  padding-right: 40px;
-  border: none !important;
-  background: none;
-  cursor: pointer;
-  /* margin: 0px 14px; */
-  
-  @media (max-widht:768px){
-    /* padding: 12px 16px */
-    padding-right: 10px;
-  }
-  
-  .usericon {
-    color: white;
-  }
-
-  .carticon {
-    color: white;
-  }
-`;
 
 function Header() {
-  const [ShowModal, SetShowModal] = useState(false);
+  const [ShowModalLogin, SetShowModalLogin] = useState(false);
+  const [ShowModalCart, SetShowModalCart] = useState(false);
   return (
     <NavHeader>
       <Logo />
       <Div>
-        <NavIcon>
-          <NavButton onClick={() => SetShowModal(true)}>
-            <FontAwesomeIcon className="usericon" icon={faUser} />
+        <NavIcons>
+          <NavButton onClick={() => SetShowModalLogin(true)}>
+            <FontAwesomeIcon className="usericon" icon={faUser}/>
           </NavButton>
-
-          <NavButton>
-            <FontAwesomeIcon className="carticon" icon={faShoppingCart} />
+          
+        
+           <NavButton onClick={() => SetShowModalCart(true)}>
+            <FontAwesomeIcon className="carticon" icon={faShoppingCart}/>
           </NavButton>
-        </NavIcon>
+        </NavIcons>
       </Div>
 
       <ReactModal
-        isOpen={ShowModal}
-        onRequestClose={() => SetShowModal(false)}
+        isOpen={ShowModalLogin}
+        onRequestClose={() => SetShowModalLogin(false)}
+        ariaHideApp={false}
+        style={{
+          overlay: {
+          },
+          content: {
+            margin: '25px',
+            backgroundColor: ' #080325',
+            borderRadius:'8px',
+            // maxWidth:'1250px',
+            // height: '100%',
+          },
+        }}
+      >
+          <LoginUser />
+      </ReactModal>
+      <ReactModal
+        isOpen={ShowModalCart}
+        onRequestClose={() => SetShowModalCart(false)}
         ariaHideApp={false}
         style={{
           overlay: {
@@ -96,13 +56,13 @@ function Header() {
           content: {
             backgroundColor: ' #080325',
             borderRadius:'8px',
+            minWidth:'1350px',
+            height: '100%',
           },
         }}
       >
         <DivModal>
-          <LoginUser />
-          <hr/>
-          <Image />
+          <Cart  />
         </DivModal>
       </ReactModal>
     </NavHeader>

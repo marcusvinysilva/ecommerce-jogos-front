@@ -1,50 +1,23 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState, useContext } from "react";
+import api from "../api";
+import { Context } from "../Auth/Authcontext";
+import {
+  Checkboxdiv,
+  UserDiv,
+  Form,
+  UserDivControl} from "./styles"
 
-const Form = styled.form`
-  margin-right: 20px;
-  padding-left:calc(45%);
-  /* align-content: center; */
-  /* text-align: center; */
-  /* align-items: flex-end; */
-  /* justify-content: right; */
-  /* border-color: black; */
-`;
 
-const UserDiv = styled.div`
-  /* margin-top: 80px; */
-  /* width: calc(100% - 80px) */
-  /* margin-bottom: 80px; */
-  /* justify-content: end; */
-`;
-
-const UserDivControl = styled.div`
-  label {
-    color: antiquewhite;
-    border-radius: 3rem;
-    /* position: absolute; */
-    /* padding-bottom: 10px; */
-    /* padding: 10px 30px; */
-     /* left: 300px; */
-    display: block;
-    margin-right:20px;
-  }
-
-  input {
-    justify-content: right;
-    padding-bottom: 20px;
-    padding: 10px 18px;
-    display:block;
-    z-index: 32px;
-  }
-`;
 
 function initialState() {
   return { user: "", password: "" };
 }
 
+
 export function LoginUser() {
   const [info, setInfo] = useState(initialState);
+  const {authenticated, handleLogin} = useContext(Context);
+  
 
   function onChange(event) {
     const { info, name } = event.target;
@@ -59,7 +32,8 @@ export function LoginUser() {
   }
 
   return (
-    // <UserDiv>
+    <UserDiv>
+    <h4>Log-in</h4>
       <Form onSubmit={onSubmit}>
         <UserDivControl>
           <label htmlFor="user">Username:</label>
@@ -81,8 +55,12 @@ export function LoginUser() {
             value={info.password}
           />
         </UserDivControl>
-        <button>Log in</button>
+        <Checkboxdiv>
+        <input type='checkbox' className='Login_remember' />
+        <label for='Login_remeber'>Remember-me</label>
+        </Checkboxdiv>
+        <button onClick={handleLogin}>Log in</button>
       </Form>
-    // </UserDiv>
+    </UserDiv>
   );
 }
