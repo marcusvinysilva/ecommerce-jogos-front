@@ -9,12 +9,12 @@ export default createGlobalStyle`
         outline: 0;
     }
     body {
+        background-repeat: no-repeat;
         background-color: #080325;
-        color: #FFFFff;
         overflow: hidden;
         -webkit-font-smoothing: antialiased;
         font-size: 14px;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; */
     }
     section {
         max-width: 1400px;

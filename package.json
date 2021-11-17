@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
     "@mui/styled-engine-sc": "^5.0.4",
@@ -15,9 +16,10 @@
     "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-material-ui-carousel": "^3.0.4",
     "react-icons": "^4.3.1",
+    "react-material-ui-carousel": "^3.0.4",
     "react-scripts": "4.0.3",
+    "styled": "^1.0.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
   },
