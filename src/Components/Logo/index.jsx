@@ -4,7 +4,7 @@ export function Logo() {
   return (
     <Divimg>
       <a href="/">
-        <img src="https://media.discordapp.net/attachments/902360088709312527/910258452264276038/unknown.png" />
+        <img src="https://media.discordapp.net/attachments/902360088709312527/910258452264276038/unknown.png" alt='Logo' />
       </a>
     </Divimg>
   );

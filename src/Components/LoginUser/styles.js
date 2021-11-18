@@ -12,8 +12,9 @@ export const UserDiv = styled.div`
     margin-top: 250px;
     margin-left: 42%;
 
-    @media (min-widht:768px){
+    @media (max-widht:768px){
         margin-left: 10px;
+        margin-top: 10%;
     }
 `;
 

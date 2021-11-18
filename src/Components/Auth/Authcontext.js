@@ -1,17 +1,17 @@
 import React, {createContext, useState, useEffect} from 'react';
-import { api } from '../api';
+import  api  from '../api';
 import history from '../history';
-const Context = createContext();
+const Authcontext = createContext();
 
 function Authprovider({children}){
     const [authenticated, setAuthenticated] = useState(false);
     const [loading,setLoading] = useState(true);
 
     useEffect(()=>{
-     const token = localStorage.getItem('token')
+     const tokenultimate = localStorage.getItem('tokenultimate')
     
-    if (token) {
-        api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`
+    if (tokenultimate) {
+        api.defaults.headers.Authorization = `Bearer ${JSON.parse(tokenultimate)}`
         setAuthenticated(true);
     }
 
@@ -19,28 +19,32 @@ function Authprovider({children}){
     
     },[]);
 
-    async function handleLogin(){
-        const {data: {token}} = await api.post('/auth/signin')
+    async function handleLogin(email,password){
+        const {data: {tokenultimate}} = await api.post('/auth/signin',
+        {email:email,
+        password:password,
+        }
+        )
 
-        localStorage.setItem('token',JSON.stringify(token));
-        api.defaults.headers.Authorization = `Bearer ${token}`;
+        localStorage.setItem('tokenultimate',JSON.stringify(tokenultimate));
+        api.defaults.headers.Authorization = `Bearer ${tokenultimate}`;
         setAuthenticated(true)
         history.push('/userpage');
     }
 
     async function handleLogout(){
         setAuthenticated(false)
-        localStorage.removeItem('token');
+        localStorage.removeItem('tokenultimate');
         api.defaults.headers.Authorization = undefined;
         history.push('/')
         
     }
  return(
-     <Context.Provider value={{ authenticated, handleLogin, handleLogout}}>
+     <Authcontext.Provider value={{ authenticated, handleLogin, handleLogout}}>
          {children}
-     </Context.Provider>
+     </Authcontext.Provider>
  )
 }
 
 
-export {Context, Authprovider};
+export {Authcontext, Authprovider};

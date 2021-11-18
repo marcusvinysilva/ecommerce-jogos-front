@@ -8,3 +8,5 @@ function Userpage() {
         <h1>This is the userpage </h1>
     )
 }
+
+export default Userpage;

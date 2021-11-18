@@ -39,14 +39,13 @@ function Header() {
             margin: '25px',
             backgroundColor: ' #080325',
             borderRadius:'8px',
-            // maxWidth:'1250px',
-            // height: '100%',
+            zIndex:'100',
           },
         }}
       >
           <LoginUser />
       </ReactModal>
-      <ReactModal
+      {/* <ReactModal
         isOpen={ShowModalCart}
         onRequestClose={() => SetShowModalCart(false)}
         ariaHideApp={false}
@@ -64,7 +63,7 @@ function Header() {
         <DivModal>
           <Cart  />
         </DivModal>
-      </ReactModal>
+      </ReactModal> */}
     </NavHeader>
   );
 }

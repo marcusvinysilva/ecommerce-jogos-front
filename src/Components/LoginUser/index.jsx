@@ -1,34 +1,24 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
+import { Authcontext } from "../Auth/Authcontext";
 import api from "../api";
-import { Context } from "../Auth/Authcontext";
+
 import {
   Checkboxdiv,
   UserDiv,
   Form,
-  UserDivControl} from "./styles"
+  UserDivControl} from "./styles";
 
-
-
-function initialState() {
-  return { user: "", password: "" };
-}
 
 
 export function LoginUser() {
-  const [info, setInfo] = useState(initialState);
-  const {authenticated, handleLogin} = useContext(Context);
-  
-
-  function onChange(event) {
-    const { info, name } = event.target;
-    setInfo({
-      ...info,
-      [name]: info,
-    });
-  }
-
+  const[email,setEmail] = useState("");
+  const[password,setPassword] = useState("");
+  const{handleLogin,authenticated} = Authcontext();
+  console.log(handleLogin)
   function onSubmit(event) {
     event.preventDefault();
+    handleLogin(email,password)
+    console.log(authenticated) 
   }
 
   return (
@@ -36,13 +26,13 @@ export function LoginUser() {
     <h4>Log-in</h4>
       <Form onSubmit={onSubmit}>
         <UserDivControl>
-          <label htmlFor="user">Username:</label>
+          <label htmlFor="Email">Username:</label>
           <input
-            id="user"
+            id="email"
             type="text"
-            name="user"
-            onChange={onChange}
-            value={info.user}
+            name="email"
+            onChange={e=>setEmail(e.target.value)}
+           
           />
         </UserDivControl>
         <UserDivControl>
@@ -51,15 +41,15 @@ export function LoginUser() {
             id="password"
             type="password"
             name="password"
-            onChange={onChange}
-            value={info.password}
+            onChange={e=>setPassword(e.target.value)}
+            
           />
         </UserDivControl>
         <Checkboxdiv>
         <input type='checkbox' className='Login_remember' />
         <label for='Login_remeber'>Remember-me</label>
         </Checkboxdiv>
-        <button onClick={handleLogin}>Log in</button>
+        <button> Log in</button>
       </Form>
     </UserDiv>
   );

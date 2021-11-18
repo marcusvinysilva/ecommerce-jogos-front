@@ -33,10 +33,10 @@ export const NavHeader = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  opacity: 0.6;
+  opacity: 0.7;
   background: #080325;
   z-index: 10;
-  /* transition: .9 s; */  
+  transition: .9 s;  
   @media (max-width: 768px) {
     opacity: 1;
   }
