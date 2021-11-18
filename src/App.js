@@ -9,8 +9,11 @@ function App() {
           <GlobalStyle />
           <GamesProvider>
             <Home />
-              
+            <section>
+            <Footer/>
+            </section>
           </GamesProvider>
+
       </>
   )
 }
