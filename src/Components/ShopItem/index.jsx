@@ -13,18 +13,22 @@ export const ShopItem = () => {
   useEffect(() => {
     getGames();
   }, []);
+
+  console.debug('Category: ', games);
+
   return (
     <>
       {games.map((game, index) => (
         <Container key={index}>
           <LinkGame to={`game-details/${game.id}`} key={index}>
             <ImageContent>
-              <GameImage src={game.thumbnail} alt={game.title} />
+              <GameImage src={game.images} alt={game.gameName} />
             </ImageContent>
             <GameInfo>
-              <h2>{game.title}</h2>
+              <h2>{game.gameName}</h2>
+              <h6>{game.price}</h6>
               <div>
-                <p>{game.genre}</p>
+                <p>{game.categoryId}</p>
                 <p>{game.platform}</p>
               </div>
             </GameInfo>

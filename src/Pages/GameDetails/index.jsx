@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Carousel } from '../../Components/Carousel';
+// import { Carousel } from '../../Components/Carousel';
 import { Hero } from '../../Components/Hero';
 
 import { useGames } from '../../context/gameContext';
@@ -11,18 +11,18 @@ export default function GameDetails() {
   useEffect(() => {
     getSelectedGame(id);
   }, [id]);
-
+  console.log('Selected game', selectedGame);
   return (
     <section>
       {selectedGame && (
         <>
-          <Hero image={selectedGame.thumbnail} title={selectedGame.title} />
+          <Hero image={selectedGame.images} title={selectedGame.gameName} />
           <div>
             <p>Description:</p>
             <div>
               <div>{selectedGame.description}</div>
             </div>
-            <Carousel show={4} infiniteLoop>
+            {/* <Carousel show={4} infiniteLoop>
               {selectedGame.screenshots.map((screenshot, index) => (
                 <div key={index}>
                   <img
@@ -31,7 +31,7 @@ export default function GameDetails() {
                   />
                 </div>
               ))}
-            </Carousel>
+            </Carousel> */}
           </div>
         </>
       )}
