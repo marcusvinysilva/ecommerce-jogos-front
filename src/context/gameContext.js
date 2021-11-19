@@ -23,7 +23,7 @@ const GamesProvider = ({ children }) => {
 
   const getSelectedGame = async (id) => {
     try {
-      const { data } = await api.get(`/games/${id}`);
+      const { data } = await api.get(`/games/findgamebyid/${id}`);
       setSelectGame(data);
     } catch {
       console.error('Something went wrong!');
