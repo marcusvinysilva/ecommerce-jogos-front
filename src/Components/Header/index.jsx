@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Logo } from '../Logo/index';
 import { LoginUser } from '../LoginUser/index';
@@ -69,26 +70,63 @@ const NavButton = styled.button`
     color: white;
   }
 `;
+=======
+import React, { useState } from "react";
+import { Logo } from "../Logo/index";
+import { LoginUser } from "../LoginUser/index";
+import ReactModal from "react-modal";
+import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Cart from "../Cart/index";
+import {NavHeader,Div,NavIcons,NavButton,DivModal,customStyles} from './style'
+
+
+>>>>>>> spanol
 
 function Header() {
-  const [ShowModal, SetShowModal] = useState(false);
+  const [ShowModalLogin, SetShowModalLogin] = useState(false);
+  const [ShowModalCart, SetShowModalCart] = useState(false);
   return (
     <NavHeader>
       <Logo />
       <Div>
+<<<<<<< HEAD
         <NavIcon>
           <NavButton onClick={() => SetShowModal(true)}>
             <PersonIcon />
           </NavButton>
           <NavButton>
             <ShoppingCartIcon />
+=======
+        <NavIcons>
+          <NavButton onClick={() => SetShowModalLogin(true)}>
+            <FontAwesomeIcon className="usericon" icon={faUser}/>
           </NavButton>
-        </NavIcon>
+          
+        
+           <NavButton onClick={() => SetShowModalCart(true)}>
+            <FontAwesomeIcon className="carticon" icon={faShoppingCart}/>
+>>>>>>> spanol
+          </NavButton>
+        </NavIcons>
       </Div>
 
       <ReactModal
-        isOpen={ShowModal}
-        onRequestClose={() => SetShowModal(false)}
+        isOpen={ShowModalLogin}
+        onRequestClose={() => SetShowModalLogin(false)}
+        ariaHideApp={false}
+        style={{
+          content:{
+            alignContent:'center',
+            alignSelf:'center'
+          }
+        }}
+      >
+          <LoginUser />
+      </ReactModal>
+      {/* <ReactModal
+        isOpen={ShowModalCart}
+        onRequestClose={() => SetShowModalCart(false)}
         ariaHideApp={false}
         style={{
           overlay: {
@@ -96,16 +134,26 @@ function Header() {
           },
           content: {
             backgroundColor: ' #080325',
+<<<<<<< HEAD
             borderRadius: '8px',
+=======
+            borderRadius:'8px',
+            minWidth:'1350px',
+            height: '100%',
+>>>>>>> spanol
           },
         }}
       >
         <DivModal>
+<<<<<<< HEAD
           <LoginUser />
           <hr />
           <Image />
+=======
+          <Cart  />
+>>>>>>> spanol
         </DivModal>
-      </ReactModal>
+      </ReactModal> */}
     </NavHeader>
   );
 }
