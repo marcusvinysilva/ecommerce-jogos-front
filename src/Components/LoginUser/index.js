@@ -12,7 +12,6 @@ import {
 export function LoginUser(props) {
   const[email,setEmail] = useState("");
   const[password,setPassword] = useState("");
-  // const{handleLogin,authenticated} = Authcontext();
   async function onSubmit(event) {
     event.preventDefault();
 
@@ -41,13 +40,13 @@ export function LoginUser(props) {
 
 
 } else {
-  console.log('Authentication error')
+  console.log(Error)
 }
 }
 
 
   return (
-    <UserDiv>
+    <>
     <h4>Log-in</h4>
       <Form onSubmit={onSubmit}>
         <UserDivControl>
@@ -72,10 +71,10 @@ export function LoginUser(props) {
         </UserDivControl>
         <Checkboxdiv>
         <input type='checkbox' className='Login_remember' />
-        <label for='Login_remeber'>Remember-me</label>
+        <label htmlFor='Login_remeber'>Remember-me</label>
         </Checkboxdiv>
         <button onClick={onSubmit}> Log in</button>
       </Form>
-    </UserDiv>
+    </>
   );
 };

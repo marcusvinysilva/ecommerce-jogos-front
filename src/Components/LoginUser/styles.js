@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const Checkboxdiv = styled.div`
-
+color: white;
 `;
 
 export const Form = styled.form`
-    
+    display: inline-block;
+    margin-top: 50%;
+    position:absolute;
+
 `;
 
 export const UserDiv = styled.div`
     margin-top: 250px;
     margin-left: 42%;
+    border-radius: 45%;
+    border: white;
 
     @media (max-widht:768px){
         margin-left: 10px;

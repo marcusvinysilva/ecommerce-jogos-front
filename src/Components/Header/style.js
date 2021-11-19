@@ -11,18 +11,6 @@ export const DivModal = styled.div`
 } */
 `;
 
-export const DDli = styled.li`
-  display: inline-block;
-`;
-
-export const DDdiv = styled.div`
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-`;
 
 export const NavIcons = styled.nav`
   justify-content: space-between;
@@ -69,3 +57,16 @@ export const NavButton = styled.a`
     color: white;
   }
 `;
+
+export const customStyles ={
+  overlay: {
+    justifyContent:'center',
+  },
+  content: {
+    margin: '25px',
+    backgroundColor: 'black',
+    borderRadius:'8px',
+    zIndex:'100',
+    justifyContent:'center',
+  },
+}

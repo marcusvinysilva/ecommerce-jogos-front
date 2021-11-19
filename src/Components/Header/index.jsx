@@ -5,7 +5,7 @@ import ReactModal from "react-modal";
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "../Cart/index";
-import {NavHeader,Div,NavIcons,NavButton,DivModal} from './style'
+import {NavHeader,Div,NavIcons,NavButton,DivModal,customStyles} from './style'
 
 
 
@@ -33,14 +33,10 @@ function Header() {
         onRequestClose={() => SetShowModalLogin(false)}
         ariaHideApp={false}
         style={{
-          overlay: {
-          },
-          content: {
-            margin: '25px',
-            backgroundColor: ' #080325',
-            borderRadius:'8px',
-            zIndex:'100',
-          },
+          content:{
+            alignContent:'center',
+            alignSelf:'center'
+          }
         }}
       >
           <LoginUser />
