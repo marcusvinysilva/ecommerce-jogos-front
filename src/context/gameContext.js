@@ -12,9 +12,7 @@ const GamesProvider = ({ children }) => {
   const getGames = async () => {
     setIsFetch(true);
     try {
-      const { data } = await api.get('/games', {
-        params: { category: 'shooter' },
-      });
+      const { data } = await api.get('/games');
       setGames(data);
     } catch {
       console.error('Something went wrong!');
@@ -25,7 +23,7 @@ const GamesProvider = ({ children }) => {
 
   const getSelectedGame = async (id) => {
     try {
-      const { data } = await api.get('/game', { params: { id: id } });
+      const { data } = await api.get(`/games/${id}`);
       setSelectGame(data);
     } catch {
       console.error('Something went wrong!');
@@ -33,8 +31,8 @@ const GamesProvider = ({ children }) => {
   };
 
   for (let i = 0; i < games.length - 85; i++) {
-    const thumbnail = games[i].thumbnail;
-    const title = games[i].title;
+    const thumbnail = games[i].images;
+    const title = games[i].gameName;
     gameList.push(<img src={thumbnail} alt={title} />);
   }
 
