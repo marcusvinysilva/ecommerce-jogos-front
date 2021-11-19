@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // import { Carousel } from '../../Components/Carousel';
 import { Hero } from '../../Components/Hero';
 
-import { useGames } from '../../context/gameContext';
+import { useGames } from '../../context/GameContext';
 export default function GameDetails() {
   const { selectedGame, getSelectedGame } = useGames();
   const { id } = useParams();
@@ -11,7 +11,7 @@ export default function GameDetails() {
   useEffect(() => {
     getSelectedGame(id);
   }, [id]);
-  console.log('Selected game', selectedGame);
+  console.log('Selected game', selectedGame ? selectedGame.gameName : 'vazio');
   return (
     <section>
       {selectedGame && (

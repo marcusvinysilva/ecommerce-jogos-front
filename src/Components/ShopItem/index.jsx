@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useGames } from '../../context/gameContext';
+import { useGames } from '../../context/GameContext';
 import {
   Container,
   Content as ImageContent,
