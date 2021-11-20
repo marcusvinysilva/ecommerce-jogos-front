@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cards } from '../GameCard';
 import { ListHeader } from './style';
-import Button from '../GlobalButton';
+import { LinkButton } from '../GlobalButton';
 import { GlobalTitle } from '../GlobalTitle';
 
 export default function GameList() {
@@ -10,7 +10,7 @@ export default function GameList() {
       <ListHeader>
         <GlobalTitle>Game List</GlobalTitle>
         <div>
-          <Button to="/shop">more</Button>
+          <LinkButton to="/shop">more</LinkButton>
         </div>
       </ListHeader>
 

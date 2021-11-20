@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
-const Button = styled(Link)`
+const DivButton = styled.div`
   position: inherit;
   padding: 10px 30px;
   top: 0;
@@ -26,4 +24,4 @@ const Button = styled(Link)`
   }
 `;
 
-export default Button;
+export default DivButton;

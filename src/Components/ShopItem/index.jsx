@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGames } from '../../context/GameContext';
+import { useCart } from '../../context/CartContext';
+
 import {
   Container,
   Content as ImageContent,
@@ -8,13 +10,19 @@ import {
   LinkGame,
 } from './style';
 
+import { DivButton } from '../../Components/GlobalButton';
+
 export const ShopItem = () => {
+  const { addProduct, cartItems, increase } = useCart();
+
   const { games, getGames } = useGames();
   useEffect(() => {
     getGames();
   }, []);
 
-  console.debug('Category: ', games);
+  const isInCart = (gameId) => {
+    return !!cartItems.find((item) => item.id === gameId);
+  };
 
   return (
     <>
@@ -34,7 +42,12 @@ export const ShopItem = () => {
             </GameInfo>
           </LinkGame>
           <div>
-            <button> add to cart</button>
+            {isInCart(game) && (
+              <DivButton onClick={() => increase(game)}>Add More</DivButton>
+            )}
+            {!isInCart(game) && (
+              <DivButton onClick={() => addProduct(game)}>Add More</DivButton>
+            )}
           </div>
         </Container>
       ))}

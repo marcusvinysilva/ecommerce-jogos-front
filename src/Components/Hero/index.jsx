@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../GlobalButton';
+import { LinkButton } from '../GlobalButton';
 import { GlobalTitle } from '../GlobalTitle';
 import { Container, Content, Parallax, InfoContainer, Info } from './style';
 export const Hero = ({ image, title }) => {
@@ -18,7 +18,7 @@ export const Hero = ({ image, title }) => {
           <Info>
             <GlobalTitle>{title ? title : 'Ultimate'}</GlobalTitle>
             <div>
-              <Button to="/shop">Shop Now</Button>
+              <LinkButton to="/shop">Shop Now</LinkButton>
             </div>
           </Info>
         </div>
