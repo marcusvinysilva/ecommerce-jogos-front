@@ -34,9 +34,9 @@ export function LoginUser(props) {
   }
 
   return (
-    <>
-      <h4>Log-in</h4>
+    <UserDiv>
       <Form onSubmit={onSubmit}>
+        <h4>Log-in</h4>
         <UserDivControl>
           <label htmlFor="Email">Username:</label>
           <input
@@ -61,6 +61,6 @@ export function LoginUser(props) {
         </Checkboxdiv>
         <button onClick={onSubmit}> Log in</button>
       </Form>
-    </>
+    </UserDiv>
   );
 }
