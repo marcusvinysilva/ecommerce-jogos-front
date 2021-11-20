@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from '../../Components/Header';
 // import { Carousel } from '../../Components/Carousel';
 import { Hero } from '../../Components/Hero';
 
@@ -16,6 +17,7 @@ export default function GameDetails() {
     <section>
       {selectedGame && (
         <>
+          <Header />
           <Hero image={selectedGame.images} title={selectedGame.gameName} />
           <div>
             <p>Description:</p>
