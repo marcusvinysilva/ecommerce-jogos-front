@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import api from "../../Components/api";
-import axios from "axios";
-const url = "https://ultimate-api-backend.herokuapp.com";
+// import axios from "axios";
+// const url = "https://ultimate-api-backend.herokuapp.com";
 
 // const fetchUser = (url) => {
 //     axios
