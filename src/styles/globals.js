@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { createGlobalStyle } from 'styled-components';
-=======
-import  { createGlobalStyle } from "styled-components";
->>>>>>> spanol
 
 export default createGlobalStyle`
     *{
