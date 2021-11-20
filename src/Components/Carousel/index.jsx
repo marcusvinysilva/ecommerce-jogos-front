@@ -8,7 +8,7 @@ import {
   RightArrow,
 } from './style';
 
-export const Carousel = ({ children, show, infiniteLoop }) => {
+export const Carousel = ({ children, show = 4, infiniteLoop }) => {
   const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0);
   const [length, setLength] = useState(children.length);
 
