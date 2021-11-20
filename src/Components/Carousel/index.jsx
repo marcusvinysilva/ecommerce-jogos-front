@@ -110,6 +110,7 @@ export const Carousel = ({ children, show, infiniteLoop }) => {
           onTouchMove={handleTouchMove}
         >
           <Content
+            to="/shop"
             style={{
               transform: `translateX(-${currentIndex * (100 / show)}vw)`,
               transition: !transitionEnabled ? 'none' : undefined,

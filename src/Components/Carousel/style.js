@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -39,25 +40,26 @@ export const RightArrow = styled(Arrow)`
   right: 24px;
 `;
 
-export const Content = styled.div`
+export const Content = styled(Link)`
   display: flex;
   transition: all 250ms linear;
   --ms-overflow-style: none;
   scrollbar-width: none;
 
-  ::-webkit-scrollbar, ::-webkit-scrollbar{
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar {
     display: none;
   }
 
-  *{
+  * {
     width: 33vw;
     flex-shrink: 0;
     flex-grow: 1;
   }
-  
+
   div {
     opacity: 0.5;
-    transition: 0.5s ;
+    transition: 0.5s;
     :hover {
       cursor: pointer;
       opacity: 1;
@@ -72,4 +74,3 @@ export const Content = styled.div`
     transform: skew(-7deg);
   }
 `;
-
