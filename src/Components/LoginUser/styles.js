@@ -1,26 +1,50 @@
 import styled from "styled-components";
 
 export const Checkboxdiv = styled.div`
-color: white;
+  color: white;
 `;
 
 export const Form = styled.form`
-    display: inline-block;
+  /* display: inline-block;
     margin-top: 50%;
-    position:absolute;
+    position:absolute; */
+  width: 70%;
+  padding: 30px 0;
+  background: rgba(20, 40, 40, 0.8);
 
+  h4 {
+    color: white;
+    font-size: 18px;
+  }
 `;
 
 export const UserDiv = styled.div`
-    margin-top: 250px;
-    margin-left: 42%;
+  /* display: flex;
+    width: 800px;
+    height: 450px;
+    margin: 50%;
     border-radius: 45%;
     border: white;
+    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    position: absolute; */
 
-    @media (max-widht:768px){
-        margin-left: 10px;
-        margin-top: 10%;
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+
+  @media (max-widht: 768px) {
+    margin-left: 10px;
+    margin-top: 10%;
+  }
 `;
 
 export const UserDivControl = styled.div`
@@ -28,19 +52,20 @@ export const UserDivControl = styled.div`
     color: antiquewhite;
     border-radius: 3rem;
     display: block;
-    margin-right:20px;
+    margin-right: 20px;
   }
 
   input {
-    justify-content: right;
-    padding-bottom: 20px;
-    padding: 8px 6px;
-    border-radius:3px;
-    width: 100%;
-    max-width: 300px;
-    min-width: 100px;
-    display:block;
-    z-index: 32px;
+    margin: 15px 0;
+    font-size: 16px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #9300ff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, 0.2);
+    color: white;
+    outline: none;
   }
 `;
-
