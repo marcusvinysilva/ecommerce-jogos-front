@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import ReactModal from 'react-modal';
-import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { NavHeader, Div, NavIcons, NavButton, DivModal } from './style';
 import { Logo } from '../Logo/index';
 import { LoginUser } from '../LoginUser/index';
+import { useCart } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 function Header() {
+  const { itemCount } = useCart();
   const [ShowModalLogin, SetShowModalLogin] = useState(false);
   const [ShowModalCart, SetShowModalCart] = useState(false);
   return (
@@ -23,7 +23,13 @@ function Header() {
           </NavButton>
 
           <NavButton onClick={() => SetShowModalCart(true)}>
-            <FontAwesomeIcon className="carticon" icon={faShoppingCart} />
+            <Link to="/cart">
+              <FontAwesomeIcon
+                className="carticon"
+                icon={faShoppingCart}
+                title={itemCount}
+              />
+            </Link>
           </NavButton>
         </NavIcons>
       </Div>

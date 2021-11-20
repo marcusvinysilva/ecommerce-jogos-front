@@ -1,7 +1,7 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import { CartReducer, sumItems } from './CartReducer';
 
-export const CartContext = createContext();
+const CartContext = createContext();
 
 const storage = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
@@ -57,4 +57,8 @@ const CartContextProvider = ({ children }) => {
   );
 };
 
-export default CartContextProvider;
+const useCart = () => {
+  return useContext(CartContext);
+};
+
+export { useCart, CartContextProvider };
