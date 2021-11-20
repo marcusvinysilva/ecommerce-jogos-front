@@ -6,14 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import {
-  NavHeader,
-  Div,
-  NavIcons,
-  NavButton,
-  DivModal,
-  customStyles,
-} from './style';
+import { NavHeader, Div, NavIcons, NavButton, DivModal } from './style';
 import { Logo } from '../Logo/index';
 import { LoginUser } from '../LoginUser/index';
 
