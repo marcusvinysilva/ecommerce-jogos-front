@@ -23,7 +23,6 @@ export const ShopItem = () => {
   const isInCart = (gameId) => {
     return !!cartItems.find((item) => item.id === gameId);
   };
-
   return (
     <>
       {games.map((game, index) => (
@@ -42,11 +41,13 @@ export const ShopItem = () => {
             </GameInfo>
           </LinkGame>
           <div>
-            {isInCart(game) && (
+            {isInCart(game.id) && (
               <DivButton onClick={() => increase(game)}>Add More</DivButton>
             )}
-            {!isInCart(game) && (
-              <DivButton onClick={() => addProduct(game)}>Add More</DivButton>
+            {!isInCart(game.id) && (
+              <DivButton onClick={() => addProduct(game)}>
+                Add to Cart
+              </DivButton>
             )}
           </div>
         </Container>
