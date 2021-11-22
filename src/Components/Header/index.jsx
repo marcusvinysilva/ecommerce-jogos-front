@@ -5,7 +5,7 @@ import ReactModal from "react-modal";
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "../Cart/index";
-import {NavHeader,Div,NavIcons,NavButton,DivModal,customStyles} from './style'
+import {NavHeader,Div,NavIcons,NavButton} from './style'
 
 
 

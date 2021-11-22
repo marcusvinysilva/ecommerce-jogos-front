@@ -1,63 +1,49 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { JwtHandler } from "../Auth/jwthandler";
 import api from "../api";
-import {
-  Checkboxdiv,
-  UserDiv,
-  Form,
-  UserDivControl} from "./styles";
-
-
+import { Checkboxdiv, UserDiv, Form, UserDivControl } from "./styles";
 
 export function LoginUser(props) {
-  const[email,setEmail] = useState("");
-  const[password,setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   async function onSubmit(event) {
     event.preventDefault();
 
+    const payload = {
+      email,
+      password,
+    };
 
+    const response = await api.Apipostreq(api.LoginUser(), payload);
 
-  const payload = {
-    email,
-    password,
-  };
+    const body = await response.json();
 
-  const response = await api.Apipostreq(api.LoginUser(),payload)
+    if (response.status === 200) {
+      console.log("Loggged in succesfuly");
 
-  const body = await response.json();
+      const accessToken = body.accessToken;
 
-  if (response.status === 200) {
-    console.log('Loggged in succesfuly')
+      JwtHandler.setJwt(accessToken);
 
-    const accessToken = body.accessToken;
+      console.log({ accessToken });
 
-
-    JwtHandler.setJwt(accessToken);
-
-    console.log({ accessToken });
-
-    props.history.push(`/`);
-
-
-} else {
-  console.log(Error)
-}
-}
-
+      props.history.push(`/`);
+    } else {
+      console.log("Auth error");
+    }
+  }
 
   return (
     <UserDiv>
-    
       <Form onSubmit={onSubmit}>
-       <h4>Log-in</h4>
+        <h4>Log-in</h4>
         <UserDivControl>
           <label htmlFor="Email">Username:</label>
           <input
             id="email"
             type="text"
             name="email"
-            onChange={e=>setEmail(e.target.value)}
-           
+            onChange={(e) => setEmail(e.target.value)}
           />
         </UserDivControl>
         <UserDivControl>
@@ -66,16 +52,18 @@ export function LoginUser(props) {
             id="password"
             type="password"
             name="password"
-            onChange={e=>setPassword(e.target.value)}
-            
+            onChange={(e) => setPassword(e.target.value)}
           />
         </UserDivControl>
         <Checkboxdiv>
-        <input type='checkbox' className='Login_remember' />
-        <label htmlFor='Login_remeber'>Remember-me</label>
+          <input type="checkbox" className="Login_remember" />
+          <label htmlFor="Login_remeber">Remember-me</label>
         </Checkboxdiv>
         <button onClick={onSubmit}> Log in</button>
+        <div>
+          <a href="">Forgot your password?</a>
+        </div>
       </Form>
     </UserDiv>
   );
-};
+}
