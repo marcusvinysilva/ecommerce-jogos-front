@@ -21,15 +21,16 @@ export function LoginUser(props) {
     if (response.status === 200) {
       console.log("Loggged in succesfuly");
 
-      const accessToken = body.accessToken;
+      const tokenultimate = body.tokenultimate;
 
-      JwtHandler.setJwt(accessToken);
+      JwtHandler.setJwt(tokenultimate);
+      const savetokenultimate = localStorage.getItem('tokenultimate')
 
-      console.log({ accessToken });
+      console.log({ tokenultimate });
 
       props.history.push(`/`);
     } else {
-      console.log("Auth error");
+      // console.log("");
     }
   }
 

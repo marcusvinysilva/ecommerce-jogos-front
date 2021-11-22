@@ -54,16 +54,7 @@ function Header() {
         isOpen={ShowModalCart}
         onRequestClose={() => SetShowModalCart(false)}
         ariaHideApp={false}
-        style={{
-          overlay: {
-          },
-          content: {
-            backgroundColor: ' #080325',
-            borderRadius:'8px',
-            minWidth:'1350px',
-            height: '100%',
-          },
-        }}
+        style={}
       >
         <DivModal>
           <Cart  />
