@@ -9,9 +9,11 @@ import {
 import { GamesShopList } from '../../Components/ShopList';
 import { Hero } from '../../Components/Hero';
 import { Breadcrumbs } from '@mui/material';
+import Header from '../../Components/Header';
 export default function ShopList() {
   return (
     <section>
+      <Header />
       <Hero />
       <Container className="container">
         <Row className="row">

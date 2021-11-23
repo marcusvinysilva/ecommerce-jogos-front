@@ -1,111 +1,72 @@
 import React, { useState } from 'react';
+import ReactModal from 'react-modal';
+
+import { NavHeader, NavIcons, NavButton } from './style';
 import { Logo } from '../Logo/index';
 import { LoginUser } from '../LoginUser/index';
-import styled from 'styled-components';
-import ReactModal from 'react-modal';
-import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Image } from './Modalimg';
+import { useCart } from '../../context/CartContext';
 
-const DivModal = styled.div`
-  z-index: 100;
-  hr {
-    border-color: #f00;
-    /* Deixar ele na horizontal quando a largura do aparelho foi maior que 768 */
-    @media (min-widht: 768px) {
-      transform: rotate(90deg);
-    }
-  }
-`;
-
-const NavIcon = styled.nav`
-  justify-content: space-between;
-`;
-
-const NavHeader = styled.nav`
-  min-height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  opacity: 0.6;
-  background: #080325;
-  z-index: 10;
-  /* transition: .9 s; */
-  @media (max-width: 768px) {
-    opacity: 1;
-  }
-`;
-
-const Div = styled.div`
-  opacity: 0.8;
-  padding-right: 20px;
-  display: flex;
-  align-items: center;
-  margin-right: --24px;
-`;
-
-const NavButton = styled.button`
-  height: 0px;
-  /* padding: 24px 32px; */
-  /* padding-top: 50%; */
-  /* padding-left: 30%; */
-  padding-right: 40px;
-  border: none !important;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  /* margin: 0px 14px; */
-
-  @media (max-widht: 768px) {
-    /* padding: 12px 16px */
-    padding-right: 10px;
-  }
-
-  .usericon {
-    color: white;
-  }
-
-  .carticon {
-    color: white;
-  }
-`;
+import Badge from '@mui/material/Badge';
+import { Person, ShoppingCart } from '@mui/icons-material';
 
 function Header() {
-  const [ShowModal, SetShowModal] = useState(false);
+  const { itemCount } = useCart();
+  const [ShowModalLogin, SetShowModalLogin] = useState(false);
+  const [ShowModalCart, SetShowModalCart] = useState(false);
+
   return (
     <NavHeader>
       <Logo />
-      <Div>
-        <NavIcon>
-          <NavButton onClick={() => SetShowModal(true)}>
-            <PersonIcon />
-          </NavButton>
-          <NavButton>
-            <ShoppingCartIcon />
-          </NavButton>
-        </NavIcon>
-      </Div>
+
+      <NavIcons>
+        <NavButton to="/#" onClick={() => SetShowModalLogin(true)}>
+          <Person />
+        </NavButton>
+
+        <NavButton to="/cart">
+          <Badge badgeContent={itemCount} color="primary">
+            <ShoppingCart color="action" />
+          </Badge>
+        </NavButton>
+      </NavIcons>
 
       <ReactModal
-        isOpen={ShowModal}
-        onRequestClose={() => SetShowModal(false)}
+        isOpen={ShowModalLogin}
+        onRequestClose={() => SetShowModalLogin(false)}
         ariaHideApp={false}
         style={{
-          overlay: {
-            zIndex: 100,
-          },
           content: {
-            backgroundColor: ' #080325',
+            alignContent: 'center',
+            alignSelf: 'center',
+            maxWidth: '100%',
+            height: 'auto',
+            margin: '25px',
             borderRadius: '8px',
+            zIndex: '100',
+            justifyContent: 'center',
+            backgroundImage:
+              'url(https://i1.wp.com/bnel242.com/wp-content/uploads/2019/12/purple-space.jpg?ssl=1)',
+            minWidth: '800px',
+            minHeight: '450px',
           },
         }}
       >
-        <DivModal>
-          <LoginUser />
-          <hr />
-          <Image />
-        </DivModal>
+        <LoginUser />
       </ReactModal>
+      <ReactModal
+        isOpen={ShowModalCart}
+        onRequestClose={() => SetShowModalCart(false)}
+        ariaHideApp={false}
+        style={{
+          overlay: {},
+          content: {
+            backgroundColor: ' #080325',
+            borderRadius: '8px',
+            minWidth: '1350px',
+            height: '100%',
+          },
+        }}
+      ></ReactModal>
     </NavHeader>
   );
 }

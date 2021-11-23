@@ -1,4 +1,6 @@
 import React from 'react';
+import { LinkButton } from '../GlobalButton';
+import { GlobalTitle } from '../GlobalTitle';
 import { Container, Content, Parallax, InfoContainer, Info } from './style';
 export const Hero = ({ image, title }) => {
   return (
@@ -14,8 +16,10 @@ export const Hero = ({ image, title }) => {
       <InfoContainer>
         <div>
           <Info>
-            <h1>{title ? title : 'Ultimate'}</h1>
-            <button>Shop Now</button>
+            <GlobalTitle>{title ? title : 'Ultimate'}</GlobalTitle>
+            <div>
+              <LinkButton to="/shop">Shop Now</LinkButton>
+            </div>
           </Info>
         </div>
       </InfoContainer>

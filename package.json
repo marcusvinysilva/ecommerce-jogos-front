@@ -5,6 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
     "@mui/styled-engine-sc": "^5.0.4",
@@ -13,7 +16,11 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
-    "history": "5",
+    "components": "^0.1.0",
+    "cors": "^2.8.5",
+    "cpf-cnpj-validator": "^1.0.3",
+    "formik": "^2.2.9",
+    "history": "^5.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -23,7 +30,8 @@
     "react-scripts": "4.0.3",
     "styled": "^1.0.0",
     "styled-components": "^5.3.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
