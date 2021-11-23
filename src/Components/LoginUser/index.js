@@ -21,15 +21,16 @@ export function LoginUser(props) {
     if (response.status === 200) {
       console.log('Loggged in succesfuly');
 
-      const accessToken = body.accessToken;
+      const tokenultimate = body.tokenultimate;
 
-      JwtHandler.setJwt(accessToken);
+      JwtHandler.setJwt(tokenultimate);
+      const savetokenultimate = localStorage.getItem('tokenultimate');
 
-      console.log({ accessToken });
+      console.log({ tokenultimate });
 
       props.history.push(`/`);
     } else {
-      console.log(Error);
+      // console.log("");
     }
   }
 
@@ -60,6 +61,9 @@ export function LoginUser(props) {
           <label htmlFor="Login_remeber">Remember-me</label>
         </Checkboxdiv>
         <button onClick={onSubmit}> Log in</button>
+        <div>
+          <a href="">Forgot your password?</a>
+        </div>
       </Form>
     </UserDiv>
   );

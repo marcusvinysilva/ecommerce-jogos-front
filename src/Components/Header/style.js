@@ -10,7 +10,6 @@ export const NavHeader = styled.nav`
   background: #080325;
   z-index: 10;
   transition: 0.9 s;
-
   @media (max-width: 768px) {
     opacity: 1;
   }
@@ -36,3 +35,16 @@ export const NavButton = styled(Link)`
     color: #fff;
   }
 `;
+
+export const customStyles = {
+  overlay: {
+    justifyContent: 'center',
+  },
+  content: {
+    margin: '25px',
+    backgroundColor: 'black',
+    borderRadius: '8px',
+    zIndex: '100',
+    justifyContent: 'center',
+  },
+};
