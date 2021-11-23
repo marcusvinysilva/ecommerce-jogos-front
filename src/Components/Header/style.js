@@ -1,16 +1,4 @@
-import styled from 'styled-components'
-
-export const DivModal = styled.div`
-
-/* hr{
-  border-color: #f00;
-   Deixar ele na horizontal quando a largura do aparelho foi maior que 768
-  @media (min-widht:768px){
-    transform: rotate(90deg);  
- }
-} */
-`;
-
+import styled from "styled-components";
 
 export const NavIcons = styled.nav`
   justify-content: space-between;
@@ -24,7 +12,7 @@ export const NavHeader = styled.nav`
   opacity: 0.7;
   background: #080325;
   z-index: 10;
-  transition: .9 s;  
+  transition: 0.9 s;
   @media (max-width: 768px) {
     opacity: 1;
   }
@@ -45,10 +33,10 @@ export const NavButton = styled.a`
   background: none;
   cursor: pointer;
 
-  @media (max-widht:768px){
+  @media (max-widht: 768px) {
     padding-right: 10px;
   }
-  
+
   .usericon {
     color: white;
   }
@@ -58,15 +46,15 @@ export const NavButton = styled.a`
   }
 `;
 
-export const customStyles ={
+export const customStyles = {
   overlay: {
-    justifyContent:'center',
+    justifyContent: "center",
   },
   content: {
-    margin: '25px',
-    backgroundColor: 'black',
-    borderRadius:'8px',
-    zIndex:'100',
-    justifyContent:'center',
+    margin: "25px",
+    backgroundColor: "black",
+    borderRadius: "8px",
+    zIndex: "100",
+    justifyContent: "center",
   },
-}
+};

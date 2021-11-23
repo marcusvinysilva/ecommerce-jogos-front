@@ -1,5 +1,5 @@
 export const JwtHandler = {
-    JWT_KEY: "JWT",
+    JWT_KEY: "9c8d9e1d80fc923ca7d532e46a3d606f",
 
     onChangeEvent: new CustomEvent("onJwtChange"),
 

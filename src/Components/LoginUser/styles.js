@@ -11,6 +11,7 @@ export const Form = styled.form`
   width: 70%;
   padding: 30px 0;
   background: rgba(20, 40, 40, 0.8);
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
 
   h4 {
     color: white;
@@ -19,17 +20,7 @@ export const Form = styled.form`
 `;
 
 export const UserDiv = styled.div`
-  /* display: flex;
-    width: 800px;
-    height: 450px;
-    margin: 50%;
-    border-radius: 45%;
-    border: white;
-    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
-    text-align: center;
-    transform: translate(-50%, -50%);
-    position: absolute; */
-
+  justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -39,7 +30,6 @@ export const UserDiv = styled.div`
   text-align: center;
   display: flex;
   color: white;
-  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
 
   @media (max-widht: 768px) {
     margin-left: 10px;
