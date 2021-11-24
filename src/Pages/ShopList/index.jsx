@@ -10,6 +10,7 @@ import { GamesShopList } from '../../Components/ShopList';
 import { Hero } from '../../Components/Hero';
 import { Breadcrumbs } from '@mui/material';
 import Header from '../../Components/Header';
+import { Footer } from '../../Components/Footer';
 export default function ShopList() {
   return (
     <section>
@@ -32,6 +33,7 @@ export default function ShopList() {
           </Main>
         </Row>
       </Container>
+      <Footer />
     </section>
   );
 }
