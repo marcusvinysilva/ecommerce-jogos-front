@@ -20,12 +20,18 @@ export function LoginUser(props) {
     const body = await response.json();
 
     if (response.status === 200) {
-      const tokenultimate = body.tokenultimate;
-      JwtHandler.setJwt(tokenultimate);
+      console.log('Loggged in succesfuly');
 
-      console.log(tokenultimate);
+      const tokenultimate = body.tokenultimate;
+
+      JwtHandler.setJwt(tokenultimate);
+      const savetokenultimate = localStorage.getItem('tokenultimate');
+
+      console.log({ tokenultimate });
 
       props.history.push(`/`);
+    } else {
+      // console.log("");
     }
   }
 
@@ -56,6 +62,9 @@ export function LoginUser(props) {
           <label htmlFor="Login_remeber">Remember-me</label>
         </Checkboxdiv>
         <button onClick={onSubmit}> Log in</button>
+        <div>
+          <a href="">Forgot your password?</a>
+        </div>
       </Form>
     </UserDiv>
   );
