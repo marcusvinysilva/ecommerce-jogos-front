@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import api from '../services/api';
+import { api, apiSupply } from '../services/api';
 
 const GamesContext = createContext(null);
 
@@ -7,6 +7,7 @@ const GamesProvider = ({ children }) => {
   const [isFetch, setIsFetch] = useState(false);
   const [games, setGames] = useState([]);
   const [selectedGame, setSelectGame] = useState(null);
+  const [selectedExternalGame, setSelectExternalGame] = useState(null);
   const gameList = [];
 
   const getGames = async () => {
@@ -21,16 +22,19 @@ const GamesProvider = ({ children }) => {
     }
   };
 
-  const getSelectedGame = async (id) => {
+  const getSelectedGame = async (id, suplyId) => {
     try {
       const { data } = await api.get(`/games/findgamebyid/${id}`);
-      setSelectGame(data);
+      setSelectGame(data.game);
+      // const { externalData } = await apiSupply.get({ params: { id: suplyId } });
+      // setSelectExternalGame(externalData);
+      console.log('externalData', selectedGame);
     } catch {
       console.error('Something went wrong!');
     }
   };
 
-  for (let i = 0; i < games.length - 85; i++) {
+  for (let i = 0; i < games.length; i++) {
     const thumbnail = games[i].images;
     const title = games[i].gameName;
     gameList.push(<img src={thumbnail} alt={title} />);
