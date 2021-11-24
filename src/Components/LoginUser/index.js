@@ -1,11 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+
 import { JwtHandler } from "../Auth/jwthandler";
 import api from "../api";
 import { Checkboxdiv, UserDiv, Form, UserDivControl } from "./styles";
+import Userpage from "../../Pages/Home/Userpage";
+
+
 
 export function LoginUser(props) {
+  const [authenticated, setAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+
+
+//   useEffect(() => {
+//     const handleOnJwtChange = () => {
+//       authenticated(JwtHandler.isJwtValid());
+//     };
+
+//     window.addEventListener("onJwtChange", handleOnJwtChange);
+
+//     return () => {
+//         window.removeEventListener("onJwtChange", handleOnJwtChange);
+//     };
+// }, []);
+
+
+
   async function onSubmit(event) {
     event.preventDefault();
 
@@ -18,25 +41,29 @@ export function LoginUser(props) {
 
     const body = await response.json();
 
-    if (response.status === 200) {
-      console.log("Loggged in succesfuly");
+    if (response.status === 201) {
+      console.log("Success! Logged in.");
 
-      const tokenultimate = body.tokenultimate;
+      const tokenUltimate = body.tokenUltimate;
 
-      JwtHandler.setJwt(tokenultimate);
-      const savetokenultimate = localStorage.getItem('tokenultimate')
+      // localStorage.setItem("tokenUltimate", tokenUltimate);
 
-      console.log({ tokenultimate });
+      JwtHandler.setJwt(tokenUltimate);
 
-      props.history.push(`/`);
-    } else {
-      // console.log("");
+      console.log({ tokenUltimate });
+
+      // props.history.push(`/`)
+      setAuthenticated(true)
+    }
+     else {
+      console.log("Error! confirm your infos and try again.");
     }
   }
 
+  if (!authenticated){
   return (
     <UserDiv>
-      <Form onSubmit={onSubmit}>
+      <Form>
         <h4>Log-in</h4>
         <UserDivControl>
           <label htmlFor="Email">Username:</label>
@@ -66,5 +93,10 @@ export function LoginUser(props) {
         </div>
       </Form>
     </UserDiv>
-  );
+  )}
+  else{
+    return(
+      <Userpage/>
+    )
+  }
 }

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Logo } from "../Logo/index";
-import { LoginUser } from "../LoginUser/index";
 import ReactModal from "react-modal";
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+import { Logo } from "../Logo/index";
+import { LoginUser, tokenultimate }  from "../LoginUser/index";
 import Cart from "../Cart/index";
+import { JwtHandler } from "../Auth/jwthandler";
 import {NavHeader,Div,NavIcons,NavButton} from './style'
 
 
@@ -12,6 +15,7 @@ import {NavHeader,Div,NavIcons,NavButton} from './style'
 function Header() {
   const [ShowModalLogin, SetShowModalLogin] = useState(false);
   const [ShowModalCart, SetShowModalCart] = useState(false);
+
   return (
     <NavHeader>
       <Logo />
@@ -43,12 +47,11 @@ function Header() {
             zIndex:'100',
             justifyContent:'center',
             backgroundImage:'url(https://i1.wp.com/bnel242.com/wp-content/uploads/2019/12/purple-space.jpg?ssl=1)',
-            minWidth:'800px',
-            minHeight:'450px',    
+            overflow: 'hidden',
           }
         }}
       >
-          <LoginUser />
+          <LoginUser/>
       </ReactModal>
       {/* <ReactModal
         isOpen={ShowModalCart}

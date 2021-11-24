@@ -7,17 +7,10 @@ const Div = styled.div``
 export default function Home() {
     return (
         <>
-        <Div>
-        <Header/>
         <h1>
             
             Esta é a Home page
         </h1>
-        </Div>
-        
-
-        
-
         </>
     )
 }
