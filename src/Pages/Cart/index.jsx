@@ -4,6 +4,7 @@ import { useCart } from '../../context/CartContext';
 
 import CartProduct from '../../Components/Cart';
 import Header from '../../Components/Header';
+import { convertPrice } from '../../utils';
 
 export default function Cart() {
   const { total, cartItems, itemCount, clearCart, checkout, handleCheckout } =
@@ -29,7 +30,7 @@ export default function Cart() {
       {cartItems.length > 0 && (
         <div>
           <p>Total items: {itemCount}</p>
-          <p>Total payment: {total}</p>
+          <p>Total payment: {convertPrice(total)}</p>
           <hr />
           <div>
             <button onClick={handleCheckout}>Checkout</button>

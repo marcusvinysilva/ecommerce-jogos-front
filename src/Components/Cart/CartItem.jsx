@@ -1,6 +1,7 @@
 import { Delete, PlusOne, Remove } from '@mui/icons-material';
 import React from 'react';
 import { useCart } from '../../context/CartContext';
+import { convertPrice } from '../../utils';
 
 export const CartItem = ({ game }) => {
   const { increase, decrease, removeProduct } = useCart();
@@ -9,7 +10,7 @@ export const CartItem = ({ game }) => {
       <div>
         <h1>{game.gameName}</h1>
         <img src={game.images} alt={game.gameName} />
-        <p>price: {game.price}</p>
+        <p>Price: {convertPrice(game.price)}</p>
       </div>
       <div>
         <p>Qty: {game.quantity}</p>
