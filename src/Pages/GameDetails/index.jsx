@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../../Components/Header';
 // import { Carousel } from '../../Components/Carousel';
 import { Hero } from '../../Components/Hero';
+import { Footer } from '../../Components/Footer';
 
 import { useGames } from '../../context/GameContext';
 export default function GameDetails() {
@@ -11,8 +12,7 @@ export default function GameDetails() {
 
   useEffect(() => {
     getSelectedGame(id);
-  }, [id]);
-  console.log('Selected game', selectedGame ? selectedGame.gameName : 'vazio');
+  }, []);
   return (
     <section>
       {selectedGame && (
@@ -24,19 +24,21 @@ export default function GameDetails() {
             <div>
               <div>{selectedGame.description}</div>
             </div>
+            <p>{selectedGame.price}</p>
             {/* <Carousel show={4} infiniteLoop>
-              {selectedGame.screenshots.map((screenshot, index) => (
+              {selectedGame.screenshots?.map((screenshot, index) => (
                 <div key={index}>
                   <img
                     src={screenshot.image}
                     alt={`screenshot-${selectedGame.title}-${screenshot.id}}`}
                   />
                 </div>
-              ))}
+              )) || []}
             </Carousel> */}
           </div>
         </>
       )}
+      <Footer />
     </section>
   );
 }

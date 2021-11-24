@@ -2,7 +2,13 @@ import { Delete, PlusOne, Remove } from '@mui/icons-material';
 import { blue } from '@mui/material/colors';
 import React from 'react';
 import { useCart } from '../../context/CartContext';
-import { DivChangeQty, DivDecrease, DivDelete, DivIncrease } from '../../Pages/Cart/style';
+import { convertPrice } from '../../utils';
+import {
+  DivChangeQty,
+  DivDecrease,
+  DivDelete,
+  DivIncrease,
+} from '../../Pages/Cart/style';
 import {
   Container,
   LinkStyle,
@@ -25,7 +31,7 @@ export const CartItem = ({ game }) => {
         <DivGameInfo>
           <GameTitle>
             <h3>
-              {game.gameName} - $ {game.price}
+              {game.gameName} - {convertPrice(game.price)}
             </h3>
           </GameTitle>
           <div>
@@ -33,25 +39,25 @@ export const CartItem = ({ game }) => {
               <p>Qty: {game.quantity}</p>
             </Divqty>
 
-              <DivIncrease className="increase">
+            <DivIncrease className="increase">
               <button onClick={() => increase(game)}>
                 <PlusOne sx={{ color: blue[500] }} />
               </button>
-              </DivIncrease>
-              {game.quantity > 1 && (
-                <DivDecrease className="decrease">
+            </DivIncrease>
+            {game.quantity > 1 && (
+              <DivDecrease className="decrease">
                 <button onClick={() => decrease(game)}>
                   <Remove color="error" />
                 </button>
-                </DivDecrease>
-              )}
-              {game.quantity === 1 && (
-                <DivDelete className="delete">
+              </DivDecrease>
+            )}
+            {game.quantity === 1 && (
+              <DivDelete className="delete">
                 <button onClick={() => removeProduct(game)}>
                   <Delete color="error" />
                 </button>
-                </DivDelete>
-              )}
+              </DivDelete>
+            )}
           </div>
         </DivGameInfo>
       </Container>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGames } from '../../context/GameContext';
 import { useCart } from '../../context/CartContext';
+import { convertPrice } from '../../utils';
 
 import {
   Container,
@@ -33,7 +34,7 @@ export const ShopItem = () => {
             </ImageContent>
             <GameInfo>
               <h2>{game.gameName}</h2>
-              <h6>{game.price}</h6>
+              <h6>{convertPrice(game.price)}</h6>
               <div>
                 <p>{game.categoryId}</p>
                 <p>{game.platform}</p>

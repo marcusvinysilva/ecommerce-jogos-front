@@ -1,6 +1,7 @@
-import React, { createContext, useState, useEffect } from "react";
-import api from "../api";
-import history from "../history";
+import React, { createContext, useState, useEffect } from 'react';
+// import history from '../history';
+import api from '../../services/api';
+
 const Authcontext = createContext({});
 
 function Authprovider({ children }) {
@@ -8,7 +9,7 @@ function Authprovider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const tokenultimate = localStorage.getItem("tokenultimate");
+    const tokenultimate = localStorage.getItem('tokenultimate');
 
     if (tokenultimate) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(
@@ -23,19 +24,19 @@ function Authprovider({ children }) {
   async function handleLogin(email, password) {
     const {
       data: { tokenultimate },
-    } = await api.post("/auth/signin", { email: email, password: password });
+    } = await api.post('/auth/signin', { email: email, password: password });
 
-    localStorage.setItem("tokenultimate", JSON.stringify(tokenultimate));
+    localStorage.setItem('tokenultimate', JSON.stringify(tokenultimate));
     api.defaults.headers.Authorization = `Bearer ${tokenultimate}`;
     setAuthenticated(true);
-    history.push("/userpage");
+    window.history.push('/userpage');
   }
 
   async function handleLogout() {
     setAuthenticated(false);
-    localStorage.removeItem("tokenultimate");
+    localStorage.removeItem('tokenultimate');
     api.defaults.headers.Authorization = undefined;
-    history.push("/");
+    window.history.push('/');
   }
   return (
     <Authcontext.Provider value={{ authenticated, handleLogin, handleLogout }}>
