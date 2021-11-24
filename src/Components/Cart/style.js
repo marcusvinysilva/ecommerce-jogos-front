@@ -2,23 +2,33 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
+  display: -webkit-flex;
   display: flex;
-  width: 100%;
-  margin-bottom: 2rem;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  @media (max-width: 1400px) {
+    width: 80%;
+    flex-direction: column;
+    flex-flow: wrap;
+    align-content: space-around;
+  }
 `;
 export const ImageContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 20%; //alterei de 33,33% //
-  padding: 8px; //add padding
-  margin-left: 45px; // adicionei esta margem//
+  width: 33, 33%; //alterei de 33,33% //
+  padding: 10px; //add padding
+  margin-left: 80px;
+  margin-bottom: 20px; // adicionei esta margem//
   opacity: 0.7;
   transform: skew(-7deg) scale(1.098);
   color: inherit;
   text-decoration: none;
   outline: none;
   display: block;
+
+
   :hover {
     transition: 0.3s opacity ease;
     opacity: 1;
@@ -49,9 +59,6 @@ export const LinkStyle = styled(Link)`
     transform: skew(-7deg) scale(1.098);
     vertical-align: middle;
     float: left;
-    @media (max-width: 768px) {
-      opacity: 1;
-    }
   }
 `;
 
@@ -67,7 +74,15 @@ export const GameTitle = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 80%;
+  width: 60%;
+  @media (min-width: 800px) {
+    GameTitle{
+    width: 20%;
+    flex-direction: column;
+    flex-flow: wrap;
+    align-content: space-around;
+    justify-content: center;
+  }
 
   h3 {
     line-height: 20px;
@@ -78,6 +93,7 @@ export const GameTitle = styled.div`
     font-size: 30px;
     line-height: 70px;
   }
+}
 `;
 
 export const Divqty = styled.div`
