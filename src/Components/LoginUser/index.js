@@ -14,21 +14,6 @@ export function LoginUser(props) {
   const [password, setPassword] = useState("");
 
 
-
-//   useEffect(() => {
-//     const handleOnJwtChange = () => {
-//       authenticated(JwtHandler.isJwtValid());
-//     };
-
-//     window.addEventListener("onJwtChange", handleOnJwtChange);
-
-//     return () => {
-//         window.removeEventListener("onJwtChange", handleOnJwtChange);
-//     };
-// }, []);
-
-
-
   async function onSubmit(event) {
     event.preventDefault();
 

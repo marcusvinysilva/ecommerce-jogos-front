@@ -1,8 +1,5 @@
-import styled from "styled-components";
-
-export const NavIcons = styled.nav`
-  justify-content: space-between;
-`;
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavHeader = styled.nav`
   min-height: 50px;
@@ -18,43 +15,36 @@ export const NavHeader = styled.nav`
   }
 `;
 
-export const Div = styled.div`
-  opacity: 0.8;
-  padding-right: 20px;
+export const NavIcons = styled.nav`
   display: flex;
   align-items: center;
-  margin-right: --24px;
+  justify-content: space-between;
 `;
 
-export const NavButton = styled.a`
+export const NavButton = styled(Link)`
   height: 0px;
   padding-right: 40px;
   border: none !important;
   background: none;
-  cursor: pointer;
 
   @media (max-widht: 768px) {
     padding-right: 10px;
   }
 
-  .usericon {
-    color: white;
-  }
-
-  .carticon {
-    color: white;
+  svg {
+    color: #fff;
   }
 `;
 
 export const customStyles = {
   overlay: {
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   content: {
-    margin: "25px",
-    backgroundColor: "black",
-    borderRadius: "8px",
-    zIndex: "100",
-    justifyContent: "center",
+    margin: '25px',
+    backgroundColor: 'black',
+    borderRadius: '8px',
+    zIndex: '100',
+    justifyContent: 'center',
   },
 };
