@@ -59,17 +59,7 @@ export default function Cart() {
           </div>
         )}
       </div>
-      {cartItems.length > 0 && (
-        <div>
-          <p>Total items: {itemCount}</p>
-          <p>Total payment: {convertPrice(total)}</p>
-          <hr />
-          <div>
-            <button onClick={handleCheckout}>Checkout</button>
-            <button onClick={clearCart}>Clear cart</button>
-          </div>
-        </div>
-      )}
+      
 
       <Footer>&copy; All rights reserved - {date}</Footer>
     </section>
