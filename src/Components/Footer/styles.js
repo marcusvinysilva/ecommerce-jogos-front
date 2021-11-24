@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.footer`
-  position: absolute;
   width: 100%;
   max-width: 1400px;
   margin-top: 60px;
@@ -20,6 +19,7 @@ export const Container = styled.footer`
   }
   span {
     text-align: center;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     padding: 0.2rem;
