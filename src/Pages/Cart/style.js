@@ -13,6 +13,7 @@ export const TitleCart = styled.h1`
 `;
 
 export const Footer = styled.footer`
+
   bottom: 0;
   width: 100%;
   max-width: 1400px;
@@ -22,6 +23,7 @@ export const Footer = styled.footer`
   text-align: center;
   margin-bottom: 10px;
   line-height: 50px;
+
 `;
 
 export const DivItems = styled.div`
@@ -34,6 +36,7 @@ export const DivItems = styled.div`
 
   h3 {
     text-align: center;
+    font-size: 25px;
     padding: 1rem;
   }
   div.Buttons {
@@ -52,10 +55,8 @@ export const DivItems = styled.div`
 `;
 
 export const DivChangeQty = styled.div`
-flex-direction: row;
-
+  flex-direction: row;
 `;
-
 
 export const DivIncrease = styled.div`
   display: flex;
@@ -73,5 +74,3 @@ export const DivDelete = styled.div`
   flex-direction: column;
   padding: 10px;
 `;
-
-
