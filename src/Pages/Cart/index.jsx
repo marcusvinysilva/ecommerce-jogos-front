@@ -13,12 +13,6 @@ export default function Cart() {
   const { total, cartItems, itemCount, clearCart, checkout, handleCheckout } =
     useCart();
 
-  const [date, setDate] = useState();
-  const getYear = () => setDate(new Date().getFullYear());
-  useEffect(() => {
-    getYear();
-  }, []);
-
   return (
     <section>
       <Header />
@@ -59,19 +53,7 @@ export default function Cart() {
           </div>
         )}
       </div>
-      {cartItems.length > 0 && (
-        <div>
-          <p>Total items: {itemCount}</p>
-          <p>Total payment: {convertPrice(total)}</p>
-          <hr />
-          <div>
-            <button onClick={handleCheckout}>Checkout</button>
-            <button onClick={clearCart}>Clear cart</button>
-          </div>
-        </div>
-      )}
-
-      <Footer>&copy; All rights reserved - {date}</Footer>
+      <Footer>&copy; All rights reserved - {new Date().getFullYear()}</Footer>
     </section>
   );
 }
