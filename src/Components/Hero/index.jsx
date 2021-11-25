@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { LinkButton } from '../GlobalButton';
 import { GlobalTitle } from '../GlobalTitle';
 import { Container, Content, Parallax, InfoContainer, Info } from './style';
@@ -17,12 +18,16 @@ export const Hero = ({ image, title }) => {
         <div>
           <Info>
             <GlobalTitle>{title ? title : 'Ultimate'}</GlobalTitle>
-            <div>
+            <DivShopButton className="shop">
               <LinkButton to="/shop">Shop Now</LinkButton>
-            </div>
+            </DivShopButton>
           </Info>
         </div>
       </InfoContainer>
     </Container>
   );
 };
+
+const DivShopButton = styled.div`
+  transform: skew(-7deg);
+`;
