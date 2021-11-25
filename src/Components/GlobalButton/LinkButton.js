@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
 
 const LinkButton = styled(Link)`
@@ -18,6 +17,7 @@ const LinkButton = styled(Link)`
   border: 1px solid #fff;
   font-size: 18px;
   margin-left: 10px;
+  text-decoration: none;
 
   :hover {
     background: #d92b4c;

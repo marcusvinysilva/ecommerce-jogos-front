@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
+import { Button } from '@mui/material';
 
+import { useCart } from '../../context/CartContext';
 import CartProduct from '../../Components/Cart';
 import Header from '../../Components/Header';
 import { convertPrice } from '../../utils';
-import { TitleCart, Footer, divPayment, DivItems } from './style';
-import { useState, useEffect } from 'react';
-import { Button } from '@mui/material';
+import { TitleCart, Footer, DivItems } from './style';
 
 export default function Cart() {
   const { total, cartItems, itemCount, clearCart, checkout, handleCheckout } =
@@ -25,7 +24,7 @@ export default function Cart() {
           <DivItems>
             <div>
               <h3>Total items: {itemCount}</h3>
-              <h3>Total payment: {total}</h3>
+              <h3>Total payment: {convertPrice(total)}</h3>
             </div>
             <div className="Buttons">
               <div className="checkout">
