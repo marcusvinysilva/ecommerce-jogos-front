@@ -1,10 +1,9 @@
 import React from 'react';
-import Home from './Pages/Home';
 import GlobalStyle from './styles/globals';
 // import { Authprovider } from "./Components/Auth/Authcontext";
-import Userpage from './Pages/Home/Userpage';
 import { JwtHandler } from './Components/Auth/jwthandler';
-import Header from './Components/Header';
+import GamesContextProvider from './context/';
+import { AppRoutes } from './routes';
 
 function App() {
   const auth = JwtHandler.isJwtValid();

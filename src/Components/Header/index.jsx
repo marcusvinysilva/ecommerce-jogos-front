@@ -5,6 +5,7 @@ import { NavHeader, NavIcons, NavButton } from './style';
 import { Logo } from '../Logo/index';
 import { LoginUser } from '../LoginUser/index';
 import { useCart } from '../../context/CartContext';
+// import { SignupForm } from '../Checkout/f'
 
 import Badge from '@mui/material/Badge';
 import { Person, ShoppingCart } from '@mui/icons-material';

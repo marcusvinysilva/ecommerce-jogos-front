@@ -3,7 +3,7 @@ import { JwtHandler } from "./Auth/jwthandler";
 const api = {
   baseUrl: "https://ultimate-api-backend.herokuapp.com/",
 
-  LoginUser: () => api.baseUrl + "auth/signin",
+  AuthUser: () => api.baseUrl + "auth/signin",
 
   authHeader: () => ({
     Authorization: "Bearer " + JwtHandler.getJwt(),
@@ -18,6 +18,15 @@ const api = {
       }),
       body: JSON.stringify(body),
     }),
+   
+
+    Apigetreq: (url, auth) =>
+    fetch(url, {
+        method: "GET",
+        headers: auth ? new Headers(api.authHeader()) : undefined,
+    }),
+
+
 };
 
 export default api;

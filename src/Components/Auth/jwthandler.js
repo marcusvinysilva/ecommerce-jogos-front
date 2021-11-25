@@ -1,27 +1,27 @@
 export const JwtHandler = {
-    JWT_KEY: "9c8d9e1d80fc923ca7d532e46a3d606f",
+  JWT_KEY: 'JWT',
 
-    onChangeEvent: new CustomEvent("onJwtChange"),
+  onChangeEvent: new CustomEvent('onJwtChange'),
 
-    onChange: () => {
-        window.dispatchEvent(JwtHandler.onChangeEvent);
-    },
+  onChange: () => {
+    window.dispatchEvent(JwtHandler.onChangeEvent);
+  },
 
-    setJwt: value => {
-        localStorage.setItem(JwtHandler.JWT_KEY, value);
+  setJwt: (value) => {
+    localStorage.setItem(JwtHandler.JWT_KEY, value);
+    console.log(value);
+    JwtHandler.onChange();
+  },
 
-        JwtHandler.onChange();
-    },
+  clearJwt: () => {
+    localStorage.removeItem(JwtHandler.JWT_KEY);
 
-    clearJwt: () => {
-        localStorage.removeItem(JwtHandler.JWT_KEY);
+    JwtHandler.onChange();
+  },
 
-        JwtHandler.onChange();
-    },
+  getJwt: () => {
+    return localStorage.getItem(JwtHandler.JWT_KEY);
+  },
 
-    getJwt: () => {
-        return localStorage.getItem(JwtHandler.JWT_KEY);
-    },
-
-    isJwtValid: () => Boolean(JwtHandler.getJwt()),
+  isJwtValid: () => Boolean(JwtHandler.getJwt()),
 };
