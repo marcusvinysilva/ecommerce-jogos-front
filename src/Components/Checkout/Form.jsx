@@ -2,40 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { cpf } from 'cpf-cnpj-validator';
-import styled from 'styled-components'
-
-const Form = styled.form`
-  width: 70%;
-  padding: 30px 0;
-  background: rgba(20, 40, 40, 0.8);
-  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
-  text-align: center;
-`;
-
-const UserDivControl = styled.div`
-  label {
-    color: antiquewhite;
-    border-radius: 3rem;
-    display: block;
-    margin-right: 20px;
-    /* align-content: center; */
-  }
-
-  input {
-    margin: 15px 0;
-    font-size: 16px;
-    padding: 10px;
-    width: 250px;
-    border: 1px solid #9300ff;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: rgba(20, 20, 20, 0.2);
-    color: white;
-    outline: none;
-  }
-`;
-
+import {Form,UserDivControl} from './style'
 
 export const SignupForm = () => {
   // Yup custom method the check if cpf is valid

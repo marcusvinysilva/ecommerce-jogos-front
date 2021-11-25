@@ -9,7 +9,6 @@ export const JwtHandler = {
 
   setJwt: (value) => {
     localStorage.setItem(JwtHandler.JWT_KEY, value);
-    console.log(value);
     JwtHandler.onChange();
   },
 

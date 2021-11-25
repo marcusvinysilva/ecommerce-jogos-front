@@ -5,9 +5,6 @@ export const Checkboxdiv = styled.div`
 `;
 
 export const Form = styled.form`
-  /* display: inline-block;
-    margin-top: 50%;
-    position:absolute; */
   width: 70%;
   padding: 30px 0;
   background: rgba(20, 40, 40, 0.8);
@@ -43,6 +40,7 @@ export const UserDivControl = styled.div`
     border-radius: 3rem;
     display: block;
     margin-right: 20px;
+    margin-top: 20px;
   }
 
   input {
@@ -57,5 +55,9 @@ export const UserDivControl = styled.div`
     background: rgba(20, 20, 20, 0.2);
     color: white;
     outline: none;
+  }
+
+  a{
+    text-decoration: none;
   }
 `;

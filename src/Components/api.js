@@ -1,4 +1,5 @@
 import { JwtHandler } from "./Auth/jwthandler";
+import axios from 'axios';
 
 const api = {
   baseUrl: "https://ultimate-api-backend.herokuapp.com/",
@@ -10,7 +11,7 @@ const api = {
   }),
 
   Apipostreq: (url, body, auth) =>
-    fetch(url, {
+    axios.post(url, {
       method: "POST",
       headers: new Headers({
         "Content-type": "application/json",

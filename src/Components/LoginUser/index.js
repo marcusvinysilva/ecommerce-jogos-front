@@ -4,6 +4,7 @@ import { JwtHandler } from '../Auth/jwthandler';
 import api from '../api';
 import { Checkboxdiv, UserDiv, Form, UserDivControl } from './styles';
 import Userpage from '../../Pages/Home/Userpage';
+import { DivButton, LinkButton } from '../GlobalButton';
 
 export function LoginUser(props) {
   const [authenticated, setAuthenticated] = useState(false);
@@ -18,7 +19,7 @@ export function LoginUser(props) {
       password,
     };
 
-    const response = await api.Apipostreq(api.AuthUser(), payload);
+    const response = await api.AuthUser(payload);
 
     const body = await response.json();
 
@@ -63,14 +64,16 @@ export function LoginUser(props) {
               onChange={(e) => setPassword(e.target.value)}
             />
           </UserDivControl>
-          <Checkboxdiv>
-            <input type="checkbox" className="Login_remember" />
-            <label htmlFor="Login_remeber">Remember-me</label>
-          </Checkboxdiv>
-          <button onClick={onSubmit}> Log in</button>
-          <div>
-            <a href="">Forgot your password?</a>
-          </div>
+          <DivButton
+            style={{
+              marginRight: '150px',
+              marginLeft: '150px',
+              marginTop: '30px',
+            }}
+            onClick={onSubmit}
+          >
+            Log in
+          </DivButton>
         </Form>
       </UserDiv>
     );
