@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { api, apiSupply } from '../services/api';
+import { api } from '../services/api';
 
 const GamesContext = createContext(null);
 

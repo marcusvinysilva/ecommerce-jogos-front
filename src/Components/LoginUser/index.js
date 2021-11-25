@@ -1,71 +1,65 @@
 import React, { useState } from 'react';
-import { JwtHandler } from '../../context/Auth/jwthandler';
-import api from '../../services/api';
+
+import { loginApi } from '../../services/Auth/loginApi';
+
+import { JwtHandler } from '../../services/Auth/jwthandler';
 import { Checkboxdiv, UserDiv, Form, UserDivControl } from './styles';
 
-export function LoginUser(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export function LoginUser() {
+  const [authenticated, setAuthenticated] = useState(false);
 
-  async function onSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    const email = event.target.email.value;
+    const password = event.target.password.value;
 
     const payload = {
       email,
       password,
     };
 
-    const response = await api.Apipostreq(api.LoginUser(), payload);
+    const response = await loginApi.apiPostRequest(
+      loginApi.loginUrl(),
+      payload
+    );
 
-    const body = await response.json();
+    if (response.status === 201) {
+      const tokenUltimate = await response.data.token;
 
-    if (response.status === 200) {
-      console.log('Loggged in succesfuly');
+      JwtHandler.setJwt(tokenUltimate);
 
-      const tokenultimate = body.tokenultimate;
-
-      JwtHandler.setJwt(tokenultimate);
-      const savetokenultimate = localStorage.getItem('tokenultimate');
-
-      console.log({ tokenultimate });
-
-      props.history.push(`/`);
+      setAuthenticated(true);
     } else {
-      // console.log("");
+      console.log(response.status);
     }
   }
 
-  return (
-    <UserDiv>
-      <Form onSubmit={onSubmit}>
-        <h4>Log-in</h4>
-        <UserDivControl>
-          <label htmlFor="Email">Username:</label>
-          <input
-            id="email"
-            type="text"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </UserDivControl>
-        <UserDivControl>
-          <label htmlFor="password">Password:</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </UserDivControl>
-        <Checkboxdiv>
-          <input type="checkbox" className="Login_remember" />
-          <label htmlFor="Login_remeber">Remember-me</label>
-        </Checkboxdiv>
-        <button onClick={onSubmit}> Log in</button>
-        <div>
-          <a href="">Forgot your password?</a>
-        </div>
-      </Form>
-    </UserDiv>
-  );
+  if (!authenticated) {
+    return (
+      <UserDiv>
+        <Form onSubmit={handleSubmit}>
+          <h4>Log-in</h4>
+          <UserDivControl>
+            <label htmlFor="Email">Username:</label>
+            <input id="email" type="text" name="email" />
+          </UserDivControl>
+          <UserDivControl>
+            <label htmlFor="password">Password:</label>
+            <input id="password" type="password" name="password" />
+          </UserDivControl>
+          <Checkboxdiv>
+            <input type="checkbox" className="Login_remember" />
+            <label htmlFor="Login_remeber">Remember-me</label>
+          </Checkboxdiv>
+          <button> Log in</button>
+          <div>
+            <a href="/#">Forgot your password?</a>
+          </div>
+        </Form>
+      </UserDiv>
+    );
+  } else {
+    return <h1>OK</h1>;
+  }
 }
