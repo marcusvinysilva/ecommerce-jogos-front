@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 
-export const Divimg = styled.div`
+export const Divimg = styled(Link)`
   background: #f000;
   padding: 10px 30px;
 
@@ -10,10 +11,6 @@ export const Divimg = styled.div`
     width: 60px;
   } */
 
-  .a {
-    cursor: pointer;
-    min-height: 10px;
-  }
 
   img {
     height:50px;
