@@ -1,14 +1,15 @@
-import React from "react";
-import Home from "./Pages/Home";
-import GlobalStyle from "./styles/globals";
+import React from 'react';
+import GlobalStyle from './styles/globals';
+import GamesContextProvider from './context/';
+import { AppRoutes } from './routes';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <section>
-        <Home />
-      </section>
+      <GamesContextProvider>
+        <AppRoutes />
+      </GamesContextProvider>
     </>
   );
 }

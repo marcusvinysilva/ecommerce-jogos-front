@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     *{
@@ -8,12 +8,12 @@ export default createGlobalStyle`
         outline: 0;
     }
     body {
+        background-repeat: no-repeat;
         background-color: #080325;
-        color: #FFFFff;
-        overflow: hidden;
+        color: #ffffff;
         -webkit-font-smoothing: antialiased;
         font-size: 14px;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        font-family: 'Lato', sans-serif;
     }
     section {
         max-width: 1400px;
