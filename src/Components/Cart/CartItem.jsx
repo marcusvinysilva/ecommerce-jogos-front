@@ -17,7 +17,7 @@ export const CartItem = ({ game }) => {
   const { increase, decrease, removeProduct } = useCart();
   return (
     <>
-      <Container className="teste">
+      <Container>
         <ImageContent>
           <LinkStyle to="/#">
             <img src={game.images} alt={game.gameName} />
