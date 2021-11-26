@@ -6,19 +6,22 @@ export const Form = styled.form`
   background: rgba(20, 40, 40, 0.8);
   box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
   text-align: center;
+  margin-top: 20vh;
+
 `;
 
 export const UserDivControl = styled.div`
   label {
-    line-height: 2;
+    line-height: 3;
     margin-bottom: 5px;
     font-weight: 700;
   }
 
   span {
     position: relative;
-    display: block;
+    display: flex;
     margin-bottom: 2rem;
+    width: 100%;
   }
 
   input {

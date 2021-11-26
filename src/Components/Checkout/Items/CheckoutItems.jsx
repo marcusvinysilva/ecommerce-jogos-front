@@ -1,4 +1,4 @@
-import { Container, Table } from './styles';
+import { Container, Footer, Table } from './styles';
 import { useCart } from '../../../context/CartContext';
 import { convertPrice } from '../../../utils/';
 
@@ -6,6 +6,7 @@ export const CheckoutCartItems = () => {
   const { cartItems, total, itemCount } = useCart();
 
   return (
+    <>
     <Container>
       <h1>List of Cart Items</h1>
       <Table>
@@ -35,5 +36,9 @@ export const CheckoutCartItems = () => {
         </tfoot>
       </Table>
     </Container>
+    <div>
+    <Footer >&copy; All rights reserved - {new Date().getFullYear()}</Footer>
+    </div>
+    </>
   );
 };

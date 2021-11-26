@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
 export const DivSignup = styled.div`
-  display: flex;
+  display: block;
+  justify-content: center;
+  align-self: center;
 `;
