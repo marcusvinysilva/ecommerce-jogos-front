@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 export const NavHeader = styled.nav`
   min-height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  opacity: 0.7;
   background: #080325;
   z-index: 10;
   transition: 0.9 s;
@@ -27,7 +25,6 @@ export const NavButton = styled(Link)`
   padding-right: 40px;
   border: none !important;
   background: none;
-  margin-bottom: 30px;
 
   @media (max-widht: 768px) {
     padding-right: 10px;
@@ -39,16 +36,14 @@ export const NavButton = styled(Link)`
 `;
 
 export const customStyles = {
+  overlay: {
+    justifyContent: 'center',
+  },
   content: {
-    alignContent: 'center',
-    alignSelf: 'center',
-    maxWidth: '100%',
-    height: 'auto',
     margin: '25px',
-    borderRadius:'8px',
-    zIndex:'100',
-    justifyContent:'center',
-    backgroundImage:'url(https://i1.wp.com/bnel242.com/wp-content/uploads/2019/12/purple-space.jpg?ssl=1)',
-    overflow: 'hidden',
-  }
+    backgroundColor: 'black',
+    borderRadius: '8px',
+    zIndex: '100',
+    justifyContent: 'center',
+  },
 };
