@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { cpf } from 'cpf-cnpj-validator';
+import {Form,UserDivControl} from './style'
 
 export const SignupForm = () => {
   // Yup custom method the check if cpf is valid
@@ -52,45 +53,45 @@ export const SignupForm = () => {
       }}
     >
       {(formik) => (
-        <form onSubmit={formik.handleSubmit}>
-          <div>
+        <Form onSubmit={formik.handleSubmit}>
+          <UserDivControl>
             <label htmlFor="name">Name</label>
             <Field type="text" name="name" />
             <ErrorMessage name="name" />
-          </div>
+          </UserDivControl>
 
-          <div>
+          <UserDivControl>
             <label htmlFor="lastName">Last Name</label>
             <Field type="text" name="lastName" />
             <ErrorMessage name="lastName" />
-          </div>
+          </UserDivControl>
 
-          <div>
+          <UserDivControl>
             <label htmlFor="cpf">CPF</label>
             <Field type="text" name="cpf" />
             <ErrorMessage name="cpf" />
-          </div>
+          </UserDivControl>
 
-          <div>
+          <UserDivControl>
             <label htmlFor="email">Email</label>
             <Field type="email" name="email" />
             <ErrorMessage name="email" />
-          </div>
+          </UserDivControl>
 
-          <div>
+          <UserDivControl>
             <label htmlFor="password">Password</label>
             <Field type="password" name="password" />
             <ErrorMessage name="password" />
-          </div>
+          </UserDivControl>
 
-          <div>
+          <UserDivControl>
             <label htmlFor="passwordConfirmation">Password Confirmation</label>
             <Field type="password" name="passwordConfirmation" />
             <ErrorMessage name="passwordConfirmation" />
-          </div>
+          </UserDivControl>
 
           <button type="submit">SignUP</button>
-        </form>
+        </Form>
       )}
     </Formik>
   );

@@ -3,16 +3,16 @@ import React, { useState } from 'react';
 import { loginApi } from '../../services/Auth/loginApi';
 
 import { JwtHandler } from '../../services/Auth/jwthandler';
-import { Checkboxdiv, UserDiv, Form, UserDivControl } from './styles';
+import { UserDiv, Form, UserDivControl } from './styles';
+import { DivButton } from '../GlobalButton';
 
-export function LoginUser() {
+export function LoginUser(props) {
   const [authenticated, setAuthenticated] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  async function handleSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
-
-    const email = event.target.email.value;
-    const password = event.target.password.value;
 
     const payload = {
       email,
@@ -38,24 +38,36 @@ export function LoginUser() {
   if (!authenticated) {
     return (
       <UserDiv>
-        <Form onSubmit={handleSubmit}>
+        <Form>
           <h4>Log-in</h4>
           <UserDivControl>
             <label htmlFor="Email">Username:</label>
-            <input id="email" type="text" name="email" />
+            <input
+              id="email"
+              type="text"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </UserDivControl>
           <UserDivControl>
             <label htmlFor="password">Password:</label>
-            <input id="password" type="password" name="password" />
+            <input
+              id="password"
+              type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </UserDivControl>
-          <Checkboxdiv>
-            <input type="checkbox" className="Login_remember" />
-            <label htmlFor="Login_remeber">Remember-me</label>
-          </Checkboxdiv>
-          <button> Log in</button>
-          <div>
-            <a href="/#">Forgot your password?</a>
-          </div>
+          <DivButton
+            style={{
+              marginRight: '150px',
+              marginLeft: '150px',
+              marginTop: '30px',
+            }}
+            onClick={onSubmit}
+          >
+            Log in
+          </DivButton>
         </Form>
       </UserDiv>
     );
