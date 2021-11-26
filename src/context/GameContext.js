@@ -22,17 +22,16 @@ const GamesProvider = ({ children }) => {
     }
   };
 
-  const getSelectedGame = async (id, suplyId) => {
+  const getSelectedGame = async (id) => {
     try {
       const { data } = await api.get(`/games/findgamebyid/${id}`);
       setSelectGame(data.game);
-      // const { externalData } = await apiSupply.get({ params: { id: suplyId } });
-      // setSelectExternalGame(externalData);
-      console.log('externalData', selectedGame);
     } catch {
       console.error('Something went wrong!');
     }
   };
+
+  const game = games[Math.floor(Math.random() * 11)];
 
   for (let i = 0; i < games.length; i++) {
     const thumbnail = games[i].images;
@@ -45,6 +44,7 @@ const GamesProvider = ({ children }) => {
       value={{
         isFetch,
         setGames,
+        game,
         games,
         gameList,
         setSelectGame,

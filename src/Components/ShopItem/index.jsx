@@ -24,6 +24,7 @@ export const ShopItem = () => {
   const isInCart = (gameId) => {
     return !!cartItems.find((item) => item.id === gameId);
   };
+
   return (
     <>
       {games.map((game, index) => (

@@ -13,6 +13,7 @@ export default function GameDetails() {
   useEffect(() => {
     getSelectedGame(id);
   }, []);
+
   return (
     <section>
       {selectedGame && (
