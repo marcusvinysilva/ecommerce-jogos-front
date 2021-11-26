@@ -6,6 +6,7 @@ import { Hero } from '../../Components/Hero';
 import { Footer } from '../../Components/Footer';
 
 import { useGames } from '../../context/GameContext';
+import { convertPrice } from '../../utils';
 export default function GameDetails() {
   const { selectedGame, getSelectedGame } = useGames();
   const { id } = useParams();
@@ -25,7 +26,7 @@ export default function GameDetails() {
             <div>
               <div>{selectedGame.description}</div>
             </div>
-            <p>{selectedGame.price}</p>
+            <p>{convertPrice(selectedGame.price)}</p>
             {/* <Carousel show={4} infiniteLoop>
               {selectedGame.screenshots?.map((screenshot, index) => (
                 <div key={index}>

@@ -23,7 +23,7 @@ export default function Cart() {
           <DivItems>
             <div>
               <h3>Total items: {itemCount}</h3>
-              <h3>Total payment: {convertPrice(total)}</h3>
+              <h3>Total payment: {convertPrice(+total)}</h3>
             </div>
             <div className="Buttons">
               <div className="checkout">

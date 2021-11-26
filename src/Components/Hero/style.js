@@ -10,11 +10,12 @@ export const Container = styled.div`
   width: 100%;
   min-height: 550px;
   overflow: hidden;
-  background: #160962;
+  background: #080325;
 `;
 
 export const Content = styled.div`
   position: absolute;
+  filter: blur(3px);
   background-position: 50% 0;
   background-attachment: initial;
   background-size: cover;
@@ -23,8 +24,11 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  opacity: 0.5;
+  opacity: 0.9;
   z-index: 0;
+  :hover{
+    filter: blur(0px);
+  }
 `;
 
 export const Parallax = styled.div`
@@ -38,6 +42,7 @@ export const Parallax = styled.div`
   z-index: -1;
 
   img {
+    display: block;
     object-fit: cover;
     object-position: 50% 50%;
     width: inherit;
