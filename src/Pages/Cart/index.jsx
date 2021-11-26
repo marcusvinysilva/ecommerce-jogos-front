@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Button } from '@mui/material';
 
+import { convertPrice } from '../../utils';
 import { useCart } from '../../context/CartContext';
 import CartProduct from '../../Components/Cart';
 import Header from '../../Components/Header';
-import { convertPrice } from '../../utils';
 import { TitleCart, Footer, DivItems } from './style';
 
 export default function Cart() {
-  const { total, cartItems, itemCount, clearCart, checkout, handleCheckout } =
-    useCart();
+  const { total, cartItems, itemCount, clearCart, checkout } = useCart();
 
   return (
     <section>
@@ -28,7 +27,11 @@ export default function Cart() {
             </div>
             <div className="Buttons">
               <div className="checkout">
-                <Button variant="contained" onClick={handleCheckout}>
+                <Button
+                  variant="contained"
+                  component={RouterLink}
+                  to="/checkout"
+                >
                   Checkout
                 </Button>
               </div>
@@ -48,7 +51,7 @@ export default function Cart() {
         {checkout && (
           <div>
             <p>Checkout successful</p>
-            <Link to="/">Buy more</Link>
+            <RouterLink to="/">Buy more</RouterLink>
           </div>
         )}
       </div>

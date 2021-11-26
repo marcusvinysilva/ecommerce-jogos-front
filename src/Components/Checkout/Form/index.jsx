@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { cpf } from 'cpf-cnpj-validator';
-import {Form,UserDivControl} from './style'
+import { Form, UserDivControl } from './style';
 
 export const SignupForm = () => {
   // Yup custom method the check if cpf is valid
@@ -56,7 +56,9 @@ export const SignupForm = () => {
         <Form onSubmit={formik.handleSubmit}>
           <UserDivControl>
             <label htmlFor="name">Name</label>
-            <Field type="text" name="name" />
+            <span>
+              <Field type="text" name="name" />
+            </span>
             <ErrorMessage name="name" />
           </UserDivControl>
 

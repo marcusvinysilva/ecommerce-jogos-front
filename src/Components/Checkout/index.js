@@ -1,17 +1,14 @@
 import React from 'react';
 import { SignupForm } from './Form';
-import styled from 'styled-components';
-
-const Divsignup = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
+import { DivSignup } from './style';
+import { CheckoutCartItems } from './Items/CheckoutItems';
 
 export default function CheckoutItems() {
   return (
-    <Divsignup>
+    <DivSignup>
       <SignupForm />
-    </Divsignup>
+
+      <CheckoutCartItems />
+    </DivSignup>
   );
 }
