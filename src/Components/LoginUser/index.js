@@ -6,10 +6,11 @@ import { JwtHandler } from '../../services/Auth/jwthandler';
 import { UserDiv, Form, UserDivControl } from './styles';
 import { DivButton } from '../GlobalButton';
 
-export function LoginUser(props) {
-  const [authenticated, setAuthenticated] = useState(false);
+export function LoginUser() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const auth = JwtHandler.isJwtValid();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -28,16 +29,14 @@ export function LoginUser(props) {
       const tokenUltimate = await response.data.token;
 
       JwtHandler.setJwt(tokenUltimate);
-
-      setAuthenticated(true);
     } else {
       console.log(response.status);
     }
   }
 
-  if (!authenticated) {
-    return (
-      <UserDiv>
+  return (
+    <UserDiv>
+      {!auth ? (
         <Form>
           <h4>Log-in</h4>
           <UserDivControl>
@@ -69,9 +68,9 @@ export function LoginUser(props) {
             Log in
           </DivButton>
         </Form>
-      </UserDiv>
-    );
-  } else {
-    return <h1>OK</h1>;
-  }
+      ) : (
+        <h1>You already logged in</h1>
+      )}
+    </UserDiv>
+  );
 }
