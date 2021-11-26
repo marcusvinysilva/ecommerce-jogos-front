@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const LinkButton = styled(Link)`
+  width: max-content;
   position: inherit;
   padding: 10px 30px;
   top: 0;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const DivButton = styled.div`
+  width: max-content;
   position: inherit;
   padding: 10px 30px;
   top: 0;
