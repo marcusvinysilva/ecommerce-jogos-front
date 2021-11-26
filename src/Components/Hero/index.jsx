@@ -1,4 +1,4 @@
-import React, { useEffect, useParams } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { LinkButton, DivButton } from '../GlobalButton';
 import { GlobalTitle } from '../GlobalTitle';
@@ -11,7 +11,6 @@ export const Hero = ({ image, title, id }) => {
   const { addProduct, cartItems, increase } = useCart();
 
   const isInCart = (gameId) => {
-    console.log('gameId', gameId);
     return !!cartItems.find((item) => item.id === gameId);
   };
 
@@ -23,8 +22,6 @@ export const Hero = ({ image, title, id }) => {
       getSelectedGame(gameId);
     }
   }, []);
-
-  console.log('selectedGame', selectedGame);
 
   return (
     <Container>

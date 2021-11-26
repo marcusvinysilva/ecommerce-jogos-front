@@ -3,12 +3,7 @@ import { blue } from '@mui/material/colors';
 import React from 'react';
 import { useCart } from '../../context/CartContext';
 import { convertPrice } from '../../utils';
-import {
-  DivChangeQty,
-  DivDecrease,
-  DivDelete,
-  DivIncrease,
-} from '../../Pages/Cart/style';
+import { DivDecrease, DivDelete, DivIncrease } from '../../Pages/Cart/style';
 import {
   Container,
   LinkStyle,
