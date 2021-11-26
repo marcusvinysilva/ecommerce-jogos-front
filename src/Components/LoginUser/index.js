@@ -5,6 +5,7 @@ import { loginApi } from '../../services/Auth/loginApi';
 import { JwtHandler } from '../../services/Auth/jwthandler';
 import { UserDiv, Form, UserDivControl } from './styles';
 import { DivButton } from '../GlobalButton';
+import Userpage from '../../Pages/Home/Userpage'
 
 export function LoginUser() {
   const [email, setEmail] = useState('');
@@ -69,7 +70,7 @@ export function LoginUser() {
           </DivButton>
         </Form>
       ) : (
-        <h1>You already logged in</h1>
+        <Userpage/>
       )}
     </UserDiv>
   );

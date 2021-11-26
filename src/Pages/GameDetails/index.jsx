@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../Components/Header';
-// import { Carousel } from '../../Components/Carousel';
+
 import { Hero } from '../../Components/Hero';
 import { Footer } from '../../Components/Footer';
+import Header from '../../Components/Header';
+import {
+  Description,
+  Divgamedetails,
+  Gamedescription,
+  Gameprice,
+} from './style';
+// import { Carousel } from '../../Components/Carousel';
 
 import { useGames } from '../../context/GameContext';
 export default function GameDetails() {
@@ -20,12 +27,14 @@ export default function GameDetails() {
         <>
           <Header />
           <Hero image={selectedGame.images} title={selectedGame.gameName} />
-          <div>
-            <p>Description:</p>
-            <div>
+          <Divgamedetails>
+            <Description>Description:</Description>
+            <Gamedescription>
               <div>{selectedGame.description}</div>
+            </Gamedescription>
+            <div>
+              <Gameprice>Game price: ${selectedGame.price}</Gameprice>
             </div>
-            <p>{selectedGame.price}</p>
             {/* <Carousel show={4} infiniteLoop>
               {selectedGame.screenshots?.map((screenshot, index) => (
                 <div key={index}>
@@ -36,7 +45,7 @@ export default function GameDetails() {
                 </div>
               )) || []}
             </Carousel> */}
-          </div>
+          </Divgamedetails>
         </>
       )}
       <Footer />

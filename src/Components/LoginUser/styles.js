@@ -12,7 +12,8 @@ export const Form = styled.form`
 
   h4 {
     color: white;
-    font-size: 18px;
+    padding-right: 20px;
+    font-size: 24px;
   }
 `;
 
@@ -57,7 +58,7 @@ export const UserDivControl = styled.div`
     outline: none;
   }
 
-  a{
+  a {
     text-decoration: none;
   }
 `;
